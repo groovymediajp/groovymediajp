@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Transition } from "@headlessui/react";
 
-export default function HeaderServices({ open, close }) {
+export default function HeaderSmartphoneMenu({ open, close }) {
   return (
     <Transition
       show={open}
@@ -257,10 +257,10 @@ export default function HeaderServices({ open, close }) {
     </Transition>
   );
 }
-HeaderServices.propTypes = {
+HeaderSmartphoneMenu.propTypes = {
   open: PropTypes.bool,
   close: PropTypes.func.required,
 };
-HeaderServices.defaultProps = {
+HeaderSmartphoneMenu.defaultProps = {
   open: false,
 };

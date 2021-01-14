@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 
+import { attributes } from "../../content/app.md";
+
 export default function HeaderApps() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
   useEffect(() => {
     isOpen && menuRef.current.focus();
   }, [isOpen]);
+
+  const { apps } = attributes;
+  console.log(apps);
 
   return (
     <div
@@ -19,7 +24,7 @@ export default function HeaderApps() {
         type="button"
         className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
-        <span>Apps</span>
+        <span>Shopify アプリ</span>
         <svg
           className="ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
           xmlns="http://www.w3.org/2000/svg"

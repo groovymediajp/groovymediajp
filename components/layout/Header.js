@@ -7,13 +7,13 @@ import HeaderSmartphoneMenu from "./HeaderSmartphoneMenu";
 export default function Header() {
   const [isSmartphoneOpen, setIsSmartphoneOpen] = useState(false);
   return (
-    <div className="relative bg-gray-50">
+    <div className="relative bg-gray-50 select-none">
       <div className="relative bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href="#">
-                <span className="sr-only">Workflow</span>
+              <a href="/">
+                <span className="sr-only">GroovyMedia</span>
                 <img
                   className="h-8 w-auto sm:h-10"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"

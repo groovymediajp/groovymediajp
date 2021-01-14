@@ -3,7 +3,7 @@ import React from "react";
 import { attributes } from "../../content/home.md";
 
 export default function Footer() {
-  const { apps } = attributes;
+  const { apps, services } = attributes;
 
   return (
     <footer className="bg-gray-800" aria-labelledby="footerHeading">
@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Shopifyアプリ
+                  Shopify Apps
                 </h3>
                 <ul className="mt-4 space-y-4">
                   {apps.map((app, app_index) => (
@@ -33,44 +33,19 @@ export default function Footer() {
               </div>
               <div className="mt-12 md:mt-0">
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Support
+                  Services
                 </h3>
                 <ul className="mt-4 space-y-4">
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Pricing
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Documentation
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Guides
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      API Status
-                    </a>
-                  </li>
+                  {services.map((service, service_index) => (
+                    <li key={service_index}>
+                      <a
+                        href="#"
+                        className="text-base text-gray-300 hover:text-white"
+                      >
+                        {service.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -85,7 +60,16 @@ export default function Footer() {
                       href="#"
                       className="text-base text-gray-300 hover:text-white"
                     >
-                      About
+                      会社概要
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="/articles/"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
+                      ブログ記事
                     </a>
                   </li>
 
@@ -94,7 +78,7 @@ export default function Footer() {
                       href="#"
                       className="text-base text-gray-300 hover:text-white"
                     >
-                      Blog
+                      求人情報
                     </a>
                   </li>
 
@@ -103,7 +87,7 @@ export default function Footer() {
                       href="#"
                       className="text-base text-gray-300 hover:text-white"
                     >
-                      Jobs
+                      プレス
                     </a>
                   </li>
 
@@ -112,21 +96,12 @@ export default function Footer() {
                       href="#"
                       className="text-base text-gray-300 hover:text-white"
                     >
-                      Press
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Partners
+                      パートナー
                     </a>
                   </li>
                 </ul>
               </div>
-              <div className="mt-12 md:mt-0">
+              {/* <div className="mt-12 md:mt-0">
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                   Legal
                 </h3>
@@ -158,99 +133,22 @@ export default function Footer() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
-          </div>
-          <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-              Language &amp; Currency
-            </h3>
-            <form className="mt-4 sm:max-w-xs">
-              <fieldset className="w-full">
-                <label htmlFor="language" className="sr-only">
-                  Language
-                </label>
-                <div className="relative">
-                  <select
-                    id="language"
-                    name="language"
-                    className="appearance-none block w-full bg-none bg-gray-700 border border-transparent rounded-md py-2 pl-3 pr-10 text-base text-white focus:outline-none focus:ring-white focus:border-white sm:text-sm"
-                  >
-                    <option>English</option>
-                    <option>French</option>
-                    <option>German</option>
-                    <option>Japanese</option>
-                    <option>Spanish</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                    <svg
-                      className="h-4 w-4 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset className="mt-4 w-full">
-                <label htmlFor="currency" className="sr-only">
-                  Currency
-                </label>
-                <div className="mt-1.5 relative">
-                  <select
-                    id="currency"
-                    name="currency"
-                    className="appearance-none w-full bg-none bg-gray-700 border border-transparent rounded-md block py-2 pl-3 pr-10 text-base text-white focus:outline-none focus:ring-white focus:border-white sm:text-sm"
-                  >
-                    <option>ARS</option>
-                    <option>AUD</option>
-                    <option>CAD</option>
-                    <option>CHF</option>
-                    <option>EUR</option>
-                    <option>GBP</option>
-                    <option>JPY</option>
-                    <option>USD</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                    <svg
-                      className="h-4 w-4 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-              Subscribe to our newsletter
+              ニュースレターを購読する
             </h3>
             <p className="mt-2 text-base text-gray-300">
-              The latest news, articles, and resources, sent to your inbox
-              weekly.
+              オンラインストアの運営の有料情報をお送りしています。
             </p>
           </div>
           <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
             <label htmlFor="emailAddress" className="sr-only">
-              Email address
+              メールアドレス
             </label>
             <input
               type="email"
@@ -259,14 +157,14 @@ export default function Footer() {
               autoComplete="email"
               required
               className="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs"
-              placeholder="Enter your email"
+              placeholder="メールアドレス"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
                 className="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
               >
-                Subscribe
+                購読する
               </button>
             </div>
           </form>

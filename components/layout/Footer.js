@@ -1,6 +1,10 @@
 import React from "react";
 
+import { attributes } from "../../content/app.md";
+
 export default function Footer() {
+  const { apps } = attributes;
+
   return (
     <footer className="bg-gray-800" aria-labelledby="footerHeading">
       <h2 id="footerHeading" className="sr-only">
@@ -12,44 +16,19 @@ export default function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Solutions
+                  Shopifyアプリ
                 </h3>
                 <ul className="mt-4 space-y-4">
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Marketing
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Analytics
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Commerce
-                    </a>
-                  </li>
-
-                  <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      Insights
-                    </a>
-                  </li>
+                  {apps.map((app, app_index) => (
+                    <li key={app_index}>
+                      <a
+                        href="#"
+                        className="text-base text-gray-300 hover:text-white"
+                      >
+                        {app.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">

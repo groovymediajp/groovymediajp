@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 
-import { attributes } from "../../content/app.md";
+import { attributes } from "../../content/home.md";
 
 export default function HeaderApps() {
   const [isOpen, setIsOpen] = useState(false);

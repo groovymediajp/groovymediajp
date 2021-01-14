@@ -1,6 +1,6 @@
 import React from "react";
 
-import { attributes } from "../../content/app.md";
+import { attributes } from "../../content/home.md";
 
 export default function Footer() {
   const { apps } = attributes;

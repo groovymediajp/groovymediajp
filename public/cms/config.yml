@@ -7,16 +7,29 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-    - label: "Home"
+    - label: "トップページ/共通コンテンツ"
       name: "home"
-      file: "content/posts.md"
+      file: "content/home.md"
       fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
-        - { label: "Body", name: "body", widget: "markdown"}
-        - label: 'Cats'
-          name: "cats"
+        - label: 'アプリ一覧'
+          name: "apps"
           widget: list
           fields:
-            - { label: "Name", name: "name", widget: "string"}
-            - { label: "Description", name: "description", widget: "text"}
+            - { label: "名称", name: "name", widget: "string"}
+            - { label: "詳細", name: "description", widget: "text"}
+        - label: 'サービス一覧'
+          name: "services"
+          widget: list
+          fields:
+            - { label: "名称", name: "name", widget: "string"}
+            - { label: "詳細", name: "description", widget: "text"}
+  - label: 'News'
+    name: 'news'
+    folder: 'content/news'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    fields:
+      - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+      - { label: '投稿日時', name: 'date', widget: 'datetime', required: true }
+      - { label: 'サムネイル画像', name: 'thumbnail', widget: 'image', required: true }
+      - { label: '本文', name: 'body', widget: 'markdown', required: true }

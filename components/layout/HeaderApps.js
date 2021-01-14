@@ -11,7 +11,6 @@ export default function HeaderApps() {
   }, [isOpen]);
 
   const { apps } = attributes;
-  console.log(apps);
 
   return (
     <div

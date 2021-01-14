@@ -1,11 +1,17 @@
+import React from 'react'
+
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+import Header from '../components/layout/Header'
+
+export default function Home () {
   return (
+    <>
+    <Header />
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>株式会社グルーヴィーメディア</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -61,5 +67,6 @@ export default function Home() {
         </a>
       </footer>
     </div>
+    </>
   )
 }

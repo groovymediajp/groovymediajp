@@ -1,0 +1,11 @@
+{
+    "eslint.validate": [{
+      "language": "react",
+      "autoFix": true
+    }],
+  
+    "vetur.format.defaultFormatter.js": "none",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+  }

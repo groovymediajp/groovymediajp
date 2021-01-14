@@ -4,10 +4,10 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'prettier/react',
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
   ],
   globals: {
     Atomics: "readonly",

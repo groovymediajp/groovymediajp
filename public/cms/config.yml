@@ -27,9 +27,9 @@ collections:
     name: 'news'
     folder: 'content/news'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}_{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}'
     fields:
       - { label: 'タイトル', name: 'title', widget: 'string', required: true }
       - { label: '投稿日時', name: 'date', widget: 'datetime', required: true }
-      - { label: 'サムネイル画像', name: 'thumbnail', widget: 'image', required: true }
+      - { label: 'サムネイル画像', name: 'thumbnail', widget: 'image', required: false }
       - { label: '本文', name: 'body', widget: 'markdown', required: true }

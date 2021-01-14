@@ -259,7 +259,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
 }
 HeaderSmartphoneMenu.propTypes = {
   open: PropTypes.bool,
-  close: PropTypes.func.required,
+  close: PropTypes.func.isRequired,
 };
 HeaderSmartphoneMenu.defaultProps = {
   open: false,

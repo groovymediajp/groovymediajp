@@ -176,7 +176,7 @@ export default function Footer() {
                     name="language"
                     className="appearance-none block w-full bg-none bg-gray-700 border border-transparent rounded-md py-2 pl-3 pr-10 text-base text-white focus:outline-none focus:ring-white focus:border-white sm:text-sm"
                   >
-                    <option selected>English</option>
+                    <option>English</option>
                     <option>French</option>
                     <option>German</option>
                     <option>Japanese</option>
@@ -210,7 +210,7 @@ export default function Footer() {
                     className="appearance-none w-full bg-none bg-gray-700 border border-transparent rounded-md block py-2 pl-3 pr-10 text-base text-white focus:outline-none focus:ring-white focus:border-white sm:text-sm"
                   >
                     <option>ARS</option>
-                    <option selected>AUD</option>
+                    <option>AUD</option>
                     <option>CAD</option>
                     <option>CHF</option>
                     <option>EUR</option>

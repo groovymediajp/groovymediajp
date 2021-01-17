@@ -57,7 +57,7 @@ export default function HeaderServices() {
                 {services.map((service, service_index) => (
                   <a
                     key={service_index}
-                    href="#"
+                    href={`/services/${service.slug}`}
                     className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                   >
                     <svg

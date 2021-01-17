@@ -52,13 +52,13 @@ export default function Header() {
               <HeaderApps />
               <HeaderServices />
               <a
-                href="#"
+                href="/news/"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 お知らせ
               </a>
               <a
-                href="#"
+                href="/pages/company"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
                 会社概要
@@ -66,7 +66,7 @@ export default function Header() {
             </nav>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
               <a
-                href="#"
+                href="/pages/contact"
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
               >
                 お問い合わせ

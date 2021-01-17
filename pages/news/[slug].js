@@ -1,13 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import fs from "fs";
 
-import { importNews } from "../../modules/filters";
+import { importNews, readContentFile } from "../../modules/filters";
 
-export default function NewsSingle({ newsRow }) {
+import Post from "../../components/article/Post";
+
+export default function Home({ post }) {
   return (
     <>
-      <p>hello</p>
+      <Head>
+        <title>お知らせ - 株式会社グルーヴィーメディア</title>
+      </Head>
+      <Post post={post} />
     </>
   );
+}
+Home.propTypes = {
+  post: PropTypes.object.isRequired,
+};
+
+export async function getStaticPaths({ ...ctx }) {
+  const newsPosts = await importNews(-1);
+  console.log(newsPosts.map((post) => ({ params: { slug: post.slug } })));
+  return {
+    paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ ...ctx }) {
+  const { slug } = ctx.params;
+
+  const content = await readContentFile(fs, "news/" + slug);
+
+  return {
+    props: {
+      post: content,
+    },
+  };
 }

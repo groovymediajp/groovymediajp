@@ -5,7 +5,7 @@ import remark from "remark"
 import html from "remark-html"
 import matter from "gray-matter";
 
-export async function importNews(limit = 6) {
+export async function importPosts(dir = 'news', limit = 6) {
   // https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
   // second flag in require.context function is if subdirectories should be searched
   const markdownFiles = require
@@ -17,13 +17,14 @@ export async function importNews(limit = 6) {
     .slice(0,limit > 0 ? limit : -1);
   return Promise.all(
     markdownFiles.map(async path => {
-      const markdown = await import(`../content/news/${path}`);
+      const markdown = await import(`../content/${dir}/${path}`);
       // console.log(renderToString(markdown.react({})));
       const excerpt = renderToString(markdown.react({})).replace(/(<([^>]+)>)/gi, "").slice(0, 100) + '...';
       return { ...markdown.default.attributes, excerpt , slug: path.substring(0, path.length - 3) };
     })
   );
 };
+
 
 const DIR = path.join(process.cwd(), "content")
 const EXTENSION = ".md"

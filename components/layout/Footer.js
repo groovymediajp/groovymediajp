@@ -143,7 +143,7 @@ export default function Footer() {
               ニュースレターを購読する
             </h3>
             <p className="mt-2 text-base text-gray-300">
-              オンラインストアの運営の有料情報をお送りしています。
+              オンラインストアテクノロジーの最新情報をお送りしています。
             </p>
           </div>
           <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">

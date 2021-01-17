@@ -33,7 +33,7 @@ export async function getStaticPaths({ ...ctx }) {
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
 
-  const content = await readContentFile(fs, "news/" + slug);
+  const content = await readContentFile(fs, "blog/" + slug);
 
   return {
     props: {

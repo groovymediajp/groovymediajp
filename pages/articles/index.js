@@ -4,15 +4,15 @@ import Head from "next/head";
 
 import { importPosts } from "../../modules/filters";
 
-import HomeNews from "../../components/home/HomeNews";
+import HomePosts from "../../components/home/HomePosts";
 
 export default function Home({ newsPosts }) {
   return (
     <>
       <Head>
-        <title>お知らせ - 株式会社グルーヴィーメディア</title>
+        <title>ブログ - 株式会社グルーヴィーメディア</title>
       </Head>
-      <HomeNews posts={newsPosts} />
+      <HomePosts posts={newsPosts} />
     </>
   );
 }
@@ -21,6 +21,6 @@ Home.propTypes = {
 };
 
 export async function getStaticProps({ ...ctx }) {
-  const newsPosts = await importPosts("news", 30);
+  const newsPosts = await importPosts("blog", 30);
   return { props: { newsPosts } };
 }

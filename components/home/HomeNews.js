@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 export default function HomeNews({ posts }) {
   return (
@@ -24,22 +25,22 @@ export default function HomeNews({ posts }) {
                     </span>;
                   })}
               </div>
-              <a href={`/news/${post.slug}`} className="block mt-4">
-                <p className="text-xl font-semibold text-gray-900">
-                  {post.title}
-                </p>
-                <p className="mt-3 text-base text-gray-500">{post.excerpt}</p>
-              </a>
+              <Link href={`/news/${post.slug}`}>
+                <a className="block mt-4">
+                  <p className="text-xl font-semibold text-gray-900">
+                    {post.title}
+                  </p>
+                  <p className="mt-3 text-base text-gray-500">{post.excerpt}</p>
+                </a>
+              </Link>
               <div className="mt-6 flex items-center">
                 <div className="flex-shrink-0">
-                  <a href="#">
-                    <span className="sr-only">GroovyMedia Staff</span>
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                  </a>
+                  <span className="sr-only">GroovyMedia Staff</span>
+                  <img
+                    className="h-10 w-10 rounded-full"
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                    alt=""
+                  />
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">

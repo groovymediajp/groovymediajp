@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 
-import { importNews } from "../modules/filters";
+import { importPosts } from "../modules/filters";
 
 import HomeNews from "../components/home/HomeNews";
 import HomePosts from "../components/home/HomePosts";
@@ -66,6 +66,8 @@ Home.propTypes = {
 };
 
 export async function getStaticProps({ ...ctx }) {
-  const newsPosts = await importNews();
-  return { props: { newsPosts, posts: newsPosts.slice(0, 3) } };
+  const newsPosts = await importPosts("news", 6);
+  const posts = await importPosts("blog", 3);
+
+  return { props: { newsPosts, posts } };
 }

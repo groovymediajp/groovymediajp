@@ -24,7 +24,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="https://tailwindui.com/img/logos/workflow-mark-green-600.svg"
                     alt="Workflow"
                   />
                 </div>
@@ -32,7 +32,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                   <button
                     type="button"
                     onClick={close}
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500"
                   >
                     <span className="sr-only">Close menu</span>
 
@@ -61,7 +61,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -85,7 +85,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -109,7 +109,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -133,7 +133,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -239,13 +239,13 @@ export default function HeaderSmartphoneMenu({ open, close }) {
               <div>
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
                 >
                   Sign up
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="text-green-600 hover:text-green-500">
                     Sign in
                   </a>
                 </p>

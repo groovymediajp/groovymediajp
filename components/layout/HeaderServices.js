@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
+import Link from "next/link";
 
 import { attributes } from "../../content/home.md";
 
@@ -21,7 +22,7 @@ export default function HeaderServices() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
       >
         <span>サービス</span>
         <svg
@@ -61,7 +62,7 @@ export default function HeaderServices() {
                     className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -122,13 +123,12 @@ export default function HeaderServices() {
                   </ul>
                 </div>
                 <div className="mt-5 text-sm">
-                  <a
-                    href="#"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    {" "}
-                    View all posts <span aria-hidden="true">&rarr;</span>
-                  </a>
+                  <Link href="/articles/">
+                    <a className="font-medium text-green-600 hover:text-green-500">
+                      &nbsp;すべての投稿を見る&nbsp;
+                      <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>

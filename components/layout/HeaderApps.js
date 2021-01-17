@@ -21,7 +21,7 @@ export default function HeaderApps() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         type="button"
-        className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
       >
         <span>Shopify アプリ</span>
         <svg
@@ -61,7 +61,7 @@ export default function HeaderApps() {
                     className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"

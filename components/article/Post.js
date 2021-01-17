@@ -137,7 +137,7 @@ export default function Post({ post }) {
       <div className="relative px-4 sm:px-6 lg:px-8">
         <div className="text-lg max-w-prose mx-auto">
           <h1>
-            <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
+            <span className="block text-base text-center text-green-600 font-semibold tracking-wide uppercase">
               {post.date}
             </span>
             <span className="mt-2 pb-8 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -152,7 +152,7 @@ export default function Post({ post }) {
           </p> */}
         </div>
         <div
-          className="mt-12 prose prose-indigo prose-lg text-gray-500 mx-auto"
+          className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
           style={{ minHeight: "800px" }}
           dangerouslySetInnerHTML={{
             __html: post.content,

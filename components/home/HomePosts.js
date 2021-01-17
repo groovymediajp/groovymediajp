@@ -40,7 +40,7 @@ export default function HomePosts({ posts }) {
                       post.tags.split(",").map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center mr-2 px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
+                          className="inline-flex items-center mr-2 px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800"
                         >
                           {tag}
                         </span>

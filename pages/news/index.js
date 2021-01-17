@@ -12,7 +12,7 @@ export default function Home({ newsPosts }) {
       <Head>
         <title>お知らせ - 株式会社グルーヴィーメディア</title>
       </Head>
-      <HomeNews posts={newsPosts} />
+      <HomeNews posts={newsPosts} singlecolumn />
     </>
   );
 }

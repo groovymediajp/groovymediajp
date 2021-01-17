@@ -59,14 +59,14 @@ export default function Header() {
                   お知らせ
                 </a>
               </Link>
-              <Link href="/pages/company">
+              <Link href="/about">
                 <a className="text-base font-medium text-gray-500 hover:text-gray-900">
                   会社概要
                 </a>
               </Link>
             </nav>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Link href="/pages/contact">
+              <Link href="/contact">
                 <a className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
                   お問い合わせ
                 </a>

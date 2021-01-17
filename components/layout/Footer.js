@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { attributes } from "../../content/home.md";
 
@@ -56,24 +57,30 @@ export default function Footer() {
                 </h3>
                 <ul className="mt-4 space-y-4">
                   <li>
-                    <a
-                      href="#"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      会社概要
-                    </a>
+                    <Link href="/about">
+                      <a className="text-base text-gray-300 hover:text-white">
+                        会社概要
+                      </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="/articles/"
-                      className="text-base text-gray-300 hover:text-white"
-                    >
-                      ブログ記事
-                    </a>
+                    <Link href="/articles/">
+                      <a className="text-base text-gray-300 hover:text-white">
+                        ブログ記事
+                      </a>
+                    </Link>
                   </li>
 
                   <li>
+                    <Link href="/contact">
+                      <a className="text-base text-gray-300 hover:text-white">
+                        お問い合わせ
+                      </a>
+                    </Link>
+                  </li>
+
+                  {/* <li>
                     <a
                       href="#"
                       className="text-base text-gray-300 hover:text-white"
@@ -98,7 +105,7 @@ export default function Footer() {
                     >
                       パートナー
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               {/* <div className="mt-12 md:mt-0">

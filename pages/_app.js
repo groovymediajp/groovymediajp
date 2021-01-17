@@ -2,6 +2,8 @@ import React from "react";
 import NextNprogress from "nextjs-progressbar";
 
 import "../styles/globals.css";
+import "tailwindcss/tailwind.css";
+// import "../styles/tailwind.css";
 
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";

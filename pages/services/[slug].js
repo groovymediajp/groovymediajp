@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 
 import { attributes } from "../../content/home.md";
+import Common from "../../components/content/Common";
 
 export default function Home({ post }) {
   return (
@@ -10,7 +11,7 @@ export default function Home({ post }) {
       <Head>
         <title>お知らせ - 株式会社グルーヴィーメディア</title>
       </Head>
-      {post.slug}
+      <Common post={post} />
     </>
   );
 }

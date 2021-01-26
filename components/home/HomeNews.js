@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
+import GroovyMediaIcon from "../layout/GroovyMediaIcon";
 import { dateFormat } from "../../modules/filters";
 
 export default function HomeNews({ posts, singlecolumn }) {
@@ -43,12 +44,7 @@ export default function HomeNews({ posts, singlecolumn }) {
               </Link>
               <div className="mt-6 flex items-center">
                 <div className="flex-shrink-0">
-                  <span className="sr-only">GroovyMedia Staff</span>
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
+                  <GroovyMediaIcon />
                 </div>
                 <div className="ml-3">
                   <p className="text-sm font-medium text-gray-900">

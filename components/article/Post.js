@@ -138,7 +138,7 @@ export default function Post({ post }) {
         <div className="text-lg max-w-prose mx-auto">
           <h1>
             <span className="block text-base text-center text-green-600 font-semibold tracking-wide uppercase">
-              {post.date}
+              {dateFormat(post.date, false)}
             </span>
             <span className="mt-2 pb-8 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               {post.title}

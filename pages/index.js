@@ -21,7 +21,7 @@ export default function Home({ newsPosts, posts }) {
               <span className="block">テクノロジーでドライブする</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-              Shopifyを始めとするオンラインストアプラットフォームを活用したアプリケーション・サービスの提供を通じ、多くの店舗や販売者を成功に導きます。
+              Shopifyを始めとするオンラインストアプラットフォームにテクノロジーの力を。我々はアプリケーション・サービスの提供を通じ、多くの店舗や販売者を成功に導きます。
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">

@@ -1,11 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
-import fs from "fs";
 
-import { importPosts, readContentFile } from "../../modules/filters";
-
-import Post from "../../components/article/Post";
+import { attributes } from "../../content/home.md";
 
 export default function Home({ post }) {
   return (
@@ -13,7 +10,7 @@ export default function Home({ post }) {
       <Head>
         <title>お知らせ - 株式会社グルーヴィーメディア</title>
       </Head>
-      <Post post={post} />
+      {post.slug}
     </>
   );
 }
@@ -22,23 +19,36 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const newsPosts = await importPosts("news", -1);
-  console.log(newsPosts);
-  console.log(newsPosts.map((post) => ({ params: { slug: post.slug } })));
+  const { services } = attributes;
+
   return {
-    paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),
+    paths: services.map((service) => ({ params: { slug: service.slug } })),
     fallback: false,
   };
 }
 
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
+  const { services } = attributes;
 
-  const content = await readContentFile(fs, "news/" + slug);
+  console.log(services, slug);
+
+  let currentService = null;
+  services.forEach((service) => {
+    if (service.slug === slug) {
+      currentService = service;
+    }
+  });
+
+  if (!currentService) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      post: content,
+      post: currentService,
     },
   };
 }

@@ -8,13 +8,27 @@ import matter from "gray-matter";
 export async function importPosts(dir = 'news', limit = 6) {
   // https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
   // second flag in require.context function is if subdirectories should be searched
-  const markdownFiles = require
+  let markdownFiles = null;
+  if (dir == 'news') {
+    markdownFiles = require
     .context('../content/news', false, /\.md$/)
     .keys()
     .map(relativePath => relativePath.substring(2))
     // .sort((a,b) => (a.slug + '').localeCompare(b.slug))
     .reverse()
-    .slice(0,limit > 0 ? limit : -1);
+  } else {
+    markdownFiles = require
+    .context('../content/blog', false, /\.md$/)
+    .keys()
+    .map(relativePath => relativePath.substring(2))
+    // .sort((a,b) => (a.slug + '').localeCompare(b.slug))
+    .reverse()
+  }
+
+  if (limit >= 0) {
+    markdownFiles = markdownFiles.slice(0,limit > 0 ? limit : -1);
+  }
+
   return Promise.all(
     markdownFiles.map(async path => {
       const markdown = await import(`../content/${dir}/${path}`);
@@ -45,7 +59,7 @@ export async function readContentFile(fs, slug) {
   }
 }
 
-export function dateFormat(dateString) {
+export function dateFormat(dateString, time=false) {
   const d = dayjs(dateString)
-  return d.format('YYYY-MM-DD')
+  return d.format('YYYY-MM-DD' + (time ? ' HH:mm:ss' : ''))
 }

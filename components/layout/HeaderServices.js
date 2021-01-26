@@ -85,7 +85,7 @@ export default function HeaderServices() {
                   </Link>
                 ))}
               </div>
-              <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+              {/* <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
                 <div>
                   <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
                     Recent Posts
@@ -128,7 +128,7 @@ export default function HeaderServices() {
                     </a>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         )}

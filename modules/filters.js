@@ -32,7 +32,6 @@ export async function importPosts(dir = 'news', limit = 6) {
   return Promise.all(
     markdownFiles.map(async path => {
       const markdown = await import(`../content/${dir}/${path}`);
-      // console.log(renderToString(markdown.react({})));
       const excerpt = renderToString(markdown.react({})).replace(/(<([^>]+)>)/gi, "").slice(0, 100) + '...';
       return { ...markdown.default.attributes, excerpt , slug: path.substring(0, path.length - 3) };
     })

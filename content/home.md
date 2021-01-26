@@ -12,6 +12,7 @@ apps:
     name: 会計freee自動連携
     slug: freee
     tags: 会計,freee
+    #link: https://apps.shopify.com/freee
   - description: 'CSV/Excel形式でShopifyの注文や商品をエクスポートします'
     name: CSVダウンロード
     slug: csv

@@ -32,8 +32,6 @@ export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
   const { apps } = attributes;
 
-  console.log(apps, slug);
-
   let currentApp = null;
   apps.forEach((app) => {
     if (app.slug === slug) {

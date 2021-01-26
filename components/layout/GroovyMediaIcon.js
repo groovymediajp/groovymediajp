@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function GroovyMediaIcon() {
-  console.log("hoge");
   return (
     <>
       <span className="sr-only">GroovyMedia Staff</span>

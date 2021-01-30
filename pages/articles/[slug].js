@@ -22,7 +22,7 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const newsPosts = await importPosts("news", -1);
+  const newsPosts = await importPosts("blog", -1);
   return {
     paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),
     fallback: false,

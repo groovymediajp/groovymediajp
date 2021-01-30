@@ -24,7 +24,7 @@ services:
     slug: appdev
     tags: 開発支援,Shopify
   - description: Shopifyのストアをどう開設するべきか、デザインや運営を支援し、体制構築をサポートします。まだ、実運営支援及び、運営の自動化を実現するためのシステム・アプリ導入支援も行っています。
-    name: Shopfifyストア 開設・運営支援
+    name: Shopifyストア 開設・運営支援
     slug: storedev
     tags: EC支援,Shopify
   - description: '継続課金ビジネスは導入することで御社の収益モデルを根本から変える可能性がある一方、独特の難しさ、大変さが存在します。それらをアドバイスし、成功に導きます。'

@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 
+import Icon from "@mdi/react";
+import { mdiCart } from "@mdi/js";
+
 import { attributes } from "../../content/home.md";
 
 export default function HeaderSmartphoneMenu({ open, close }) {
@@ -27,11 +30,7 @@ export default function HeaderSmartphoneMenu({ open, close }) {
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
+                  <img className="h-8 w-auto" src="/logo.svg" alt="" />
                 </div>
                 <div className="-mr-2">
                   <button
@@ -64,21 +63,11 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                   {apps.map((app) => (
                     <Link key={app.slug} href={`/shopifyapps/${app.slug}`}>
                       <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <svg
+                        <Icon
+                          path={mdiCart}
+                          size={1}
                           className="flex-shrink-0 h-6 w-6 text-green-600"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                          />
-                        </svg>
+                        />
                         <span className="ml-3 text-base font-medium text-gray-900">
                           {app.name}
                         </span>
@@ -99,12 +88,11 @@ export default function HeaderSmartphoneMenu({ open, close }) {
                 ))}
               </div>
               <div>
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
-                >
-                  担当者に相談する
-                </a>
+                <Link href="/contact">
+                  <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
+                    担当者に相談する
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { dateFormat } from "../../modules/filters";
+// import { dateFormat } from "../../modules/filters";
 
 export default function Common({ post }) {
   return (
@@ -134,13 +134,23 @@ export default function Common({ post }) {
             {post.description}
           </p>
         </div>
-        <div
-          className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
-          style={{ minHeight: "800px" }}
-          dangerouslySetInnerHTML={{
-            __html: post.content,
-          }}
-        ></div>
+        {post.content && (
+          <div
+            className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
+            style={{ minHeight: "800px" }}
+            dangerouslySetInnerHTML={{
+              __html: post.content,
+            }}
+          ></div>
+        )}
+        {post.react && (
+          <div
+            className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
+            style={{ minHeight: "800px" }}
+          >
+            {post.react}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -2,6 +2,15 @@ import React, { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 
+import Icon from "@mdi/react";
+import { mdiWrench, mdiCart, mdiRepeat } from "@mdi/js";
+
+const icons = {
+  wrench: mdiWrench,
+  cart: mdiCart,
+  repeat: mdiRepeat,
+};
+
 import { attributes } from "../../content/home.md";
 
 export default function HeaderServices() {
@@ -58,21 +67,11 @@ export default function HeaderServices() {
                 {services.map((service) => (
                   <Link key={service.slug} href={`/services/${service.slug}`}>
                     <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <svg
+                      <Icon
+                        path={icons[service.icon]}
+                        size={1}
                         className="flex-shrink-0 h-6 w-6 text-green-600"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-                        />
-                      </svg>
+                      />
                       <div className="ml-4">
                         <p className="text-base font-medium text-gray-900">
                           {service.name}

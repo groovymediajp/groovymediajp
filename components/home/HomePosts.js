@@ -6,6 +6,9 @@ import GroovyMediaIcon from "../layout/GroovyMediaIcon";
 import { dateFormat } from "../../modules/filters";
 
 export default function HomePosts({ posts }) {
+  if (!posts || posts.length <= 0) {
+    return null;
+  }
   return (
     <div className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="absolute inset-0">

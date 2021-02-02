@@ -16,7 +16,7 @@ export default function Header() {
               <Link href="/">
                 <a>
                   <span className="sr-only">GroovyMedia</span>
-                  <img className="h-8 w-auto sm:h-10" src="/logo2.png" alt="" />
+                  <img className="h-8 w-auto sm:h-10" src="/logo.svg" alt="" />
                 </a>
               </Link>
             </div>

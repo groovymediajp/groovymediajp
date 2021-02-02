@@ -3,7 +3,7 @@ import { Transition } from "@headlessui/react";
 import Link from "next/link";
 
 import Icon from "@mdi/react";
-import { mdiAccount } from "@mdi/js";
+import { mdiCart } from "@mdi/js";
 
 import { attributes } from "../../content/home.md";
 
@@ -62,7 +62,7 @@ export default function HeaderApps() {
                   <Link key={app.slug} href={`/shopifyapps/${app.slug}`}>
                     <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
                       <Icon
-                        path={mdiAccount}
+                        path={mdiCart}
                         size={1}
                         className="flex-shrink-0 h-6 w-6 text-green-600"
                       />

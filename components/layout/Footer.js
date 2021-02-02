@@ -22,12 +22,11 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {apps.map((app, app_index) => (
                     <li key={app_index}>
-                      <a
-                        href="#"
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {app.name}
-                      </a>
+                      <Link key={app.slug} href={`/shopifyapps/${app.slug}`}>
+                        <a className="text-base text-gray-300 hover:text-white">
+                          {app.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -37,14 +36,13 @@ export default function Footer() {
                   Services
                 </h3>
                 <ul className="mt-4 space-y-4">
-                  {services.map((service, service_index) => (
-                    <li key={service_index}>
-                      <a
-                        href="#"
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {service.name}
-                      </a>
+                  {services.map((service) => (
+                    <li key={service.slug}>
+                      <Link href={`/services/${service.slug}`}>
+                        <a className="text-base text-gray-300 hover:text-white">
+                          {service.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -130,27 +130,38 @@ export default function Common({ post }) {
               {post.name}
             </span>
           </h1>
-          <p className="mt-8 text-xl text-gray-500 leading-8">
-            {post.description}
-          </p>
         </div>
-        {post.content && (
-          <div
-            className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
-            style={{ minHeight: "800px" }}
-            dangerouslySetInnerHTML={{
-              __html: post.content,
-            }}
-          ></div>
-        )}
-        {post.react && (
-          <div
-            className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
-            style={{ minHeight: "800px" }}
-          >
-            {post.react}
+        <div className=" max-w-prose mx-auto" style={{ minHeight: "800px" }}>
+          <div className="text-lg">
+            <p className="mt-8 text-xl text-gray-500 leading-8">
+              {post.description}
+            </p>
           </div>
-        )}
+          {post.content && (
+            <div
+              className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
+              dangerouslySetInnerHTML={{
+                __html: post.content.replace("<a ", '<a target="_blank" '),
+              }}
+            ></div>
+          )}
+          {post.react && (
+            <div className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto">
+              {post.react}
+            </div>
+          )}
+          <div className="text-center mt-10">
+            <div className="mt-3 rounded-md shadow sm:mt-0">
+              <a
+                href="/contact/"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10"
+                // className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+              >
+                担当者に相談する
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

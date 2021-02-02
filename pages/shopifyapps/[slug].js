@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import fs from "fs";
+import { readContentFile } from "../../modules/filters";
 
 import { attributes } from "../../content/home.md";
 import Common from "../../components/content/Common";
@@ -44,6 +46,11 @@ export async function getStaticProps({ ...ctx }) {
       notFound: true,
     };
   }
+
+  const content = await readContentFile(fs, "apps/" + slug);
+  // console.log("content", content);
+  currentApp.content = content.content;
+  // currentApp.title = null;
 
   return {
     props: {

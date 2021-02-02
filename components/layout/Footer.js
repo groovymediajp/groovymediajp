@@ -144,7 +144,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+        {/* <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
               ニュースレターを購読する
@@ -175,10 +175,10 @@ export default function Footer() {
               </button>
             </div>
           </form>
-        </div>
+        </div> */}
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
-            <a href="#" className="text-gray-400 hover:text-gray-300">
+            {/* <a href="#" className="text-gray-400 hover:text-gray-300">
               <span className="sr-only">Facebook</span>
               <svg
                 className="h-6 w-6"
@@ -252,7 +252,7 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </a> */}
           </div>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
             &copy; 2020 GroovyMedia, Inc. All rights reserved.

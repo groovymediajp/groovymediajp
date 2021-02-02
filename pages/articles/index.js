@@ -12,7 +12,8 @@ export default function Home({ newsPosts }) {
       <Head>
         <title>ブログ - 株式会社グルーヴィーメディア</title>
       </Head>
-      <HomePosts posts={newsPosts} />
+      <div className="text-xl text-center my-10 py-10">現在準備中です。</div>
+      {/* <HomePosts posts={newsPosts} /> */}
     </>
   );
 }

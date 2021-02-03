@@ -110,7 +110,7 @@ export default function HeaderApps() {
                 </div>
 
                 <div className="flow-root">
-                  <Link to="/contact">
+                  <Link href="/contact">
                     <a className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
                       <svg
                         className="flex-shrink-0 h-6 w-6 text-gray-400"

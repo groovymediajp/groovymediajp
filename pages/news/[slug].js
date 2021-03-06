@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import fs from "fs";
+import dayjs from "dayjs";
 
 import { importPosts, readContentFile } from "../../modules/filters";
 
@@ -23,8 +24,11 @@ Home.propTypes = {
 
 export async function getStaticPaths({ ...ctx }) {
   const newsPosts = await importPosts("news", -1);
+  const now = dayjs();
   return {
-    paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),
+    paths: newsPosts
+      .filter((post) => now.diff(dayjs(post.date)) >= 0)
+      .map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }

@@ -20,10 +20,10 @@ export default function Home({ newsPosts }) {
 Home.propTypes = {
   newsPosts: PropTypes.array.isRequired,
 };
-const now = dayjs();
 
 export async function getStaticProps({ ...ctx }) {
   const newsPosts = await importPosts("news", 30);
+  const now = dayjs();
   return {
     props: {
       newsPosts: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0),

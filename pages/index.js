@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import dayjs from "dayjs";
 
 import { importPosts } from "../modules/filters";
 
@@ -65,6 +66,12 @@ Home.propTypes = {
 export async function getStaticProps({ ...ctx }) {
   const newsPosts = await importPosts("news", 6);
   const posts = await importPosts("blog", 3);
+  const now = dayjs();
 
-  return { props: { newsPosts, posts } };
+  return {
+    props: {
+      newsPosts: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0),
+      posts,
+    },
+  };
 }

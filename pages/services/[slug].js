@@ -22,7 +22,7 @@ Home.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths({ ...ctx }) {
+export async function getStaticPaths() {
   return {
     paths: services.map((service) => ({ params: { slug: service.slug } })),
     fallback: false,
@@ -31,7 +31,6 @@ export async function getStaticPaths({ ...ctx }) {
 
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
-  const { services } = attributes;
 
   let currentService = null;
   services.forEach((service) => {

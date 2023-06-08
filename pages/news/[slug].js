@@ -22,7 +22,7 @@ Home.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths({ ...ctx }) {
+export async function getStaticPaths() {
   const newsPosts = await importPosts('news', -1);
   const now = dayjs();
   return {

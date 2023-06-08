@@ -16,7 +16,7 @@ export default function Footer() {
               <div>
                 <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>Products</h3>
                 <ul className='mt-4 space-y-4'>
-                  {products.map((app, app_index) => (
+                  {products.map((app) => (
                     <li key={app.slug}>
                       <Link href={`/products/${app.slug}`} className='text-base text-gray-300 hover:text-white'>
                         {app.name}

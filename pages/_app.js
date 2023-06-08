@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import NextNprogress from 'nextjs-progressbar';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 import '../styles/globals.css';
 import 'tailwindcss/tailwind.css';
@@ -46,5 +47,9 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+MyApp.propTypes = {
+  Component: PropTypes.node.isRequired,
+  pageProps: PropTypes.object.isRequired,
+};
 
 export default MyApp;

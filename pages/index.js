@@ -63,7 +63,7 @@ Home.propTypes = {
   newsPosts: PropTypes.array.isRequired,
 };
 
-export async function getStaticProps({ ...ctx }) {
+export async function getStaticProps() {
   const newsPosts = await importPosts('news', 6);
   const posts = await importPosts('blog', 3);
   const now = dayjs();

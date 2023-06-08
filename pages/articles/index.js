@@ -4,9 +4,9 @@ import Head from 'next/head';
 
 import { importPosts } from '../../modules/filters';
 
-import HomePosts from '../../components/home/HomePosts';
+// import HomePosts from '../../components/home/HomePosts';
 
-export default function Home({ newsPosts }) {
+export default function Home(/*{ newsPosts }*/) {
   return (
     <>
       <Head>
@@ -21,7 +21,7 @@ Home.propTypes = {
   newsPosts: PropTypes.array.isRequired,
 };
 
-export async function getStaticProps({ ...ctx }) {
+export async function getStaticProps() {
   const newsPosts = await importPosts('blog', 30);
   return { props: { newsPosts } };
 }

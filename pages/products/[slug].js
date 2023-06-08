@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import fs from 'fs';
-import remark from 'remark';
-import html from 'remark-html';
 
 import { products } from '../../content/contents';
 import Common from '../../components/content/Common';
@@ -23,7 +21,7 @@ Home.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths({ ...ctx }) {
+export async function getStaticPaths() {
   return {
     paths: products.map((app) => ({ params: { slug: app.slug } })),
     fallback: false,

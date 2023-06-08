@@ -21,7 +21,7 @@ Home.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths({ ...ctx }) {
+export async function getStaticPaths() {
   const newsPosts = await importPosts('blog', -1);
   return {
     paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),

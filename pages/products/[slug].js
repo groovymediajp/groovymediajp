@@ -25,7 +25,6 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  console.log(ctx)
   return {
     paths: products.map((app) => ({ params: { slug: app.slug } })),
     fallback: false,
@@ -33,18 +32,6 @@ export async function getStaticPaths({ ...ctx }) {
 }
 export async function getPostData(id) {
   const fileContents = await readContentFile(fs, `apps/${id}`);
-
-  // // Use gray-matter to parse the post metadata section
-  // const matterResult = matter(fileContents);
-
-  // // Use remark to convert markdown into HTML string
-  // const processedContent = await remark()
-  //   .use(html)
-  //   .process(matterResult.content);
-  // const contentHtml = processedContent.toString();
-
-  // Combine the data with the id and contentHtml
-  console.log(fileContents);
   return fileContents;
 }
 
@@ -58,30 +45,4 @@ export async function getStaticProps({ params }) {
       post: postData,
     },
   };
-  // const { slug } = ctx.params;
-  // const { apps } = attributes;
-
-  // let currentApp = null;
-  // apps.forEach((app) => {
-  //   if (app.slug === slug) {
-  //     currentApp = app;
-  //   }
-  // });
-
-  // if (!currentApp) {
-  //   return {
-  //     notFound: true,
-  //   };
-  // }
-
-  // const content = await readContentFile(fs, "apps/" + slug);
-  // // console.log("content", content);
-  // currentApp.content = content.content;
-  // // currentApp.title = null;
-
-  // return {
-  //   props: {
-  //     post: currentApp,
-  //   },
-  // };
 }

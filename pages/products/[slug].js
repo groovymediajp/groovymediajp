@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
-import remark from 'remark'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import fs from 'fs';
+import remark from 'remark';
 import html from 'remark-html';
 
-
-import {products} from "../../content/contents";
-import Common from "../../components/content/Common";
-import { readContentFile } from "../../modules/filters";
+import { products } from '../../content/contents';
+import Common from '../../components/content/Common';
+import { readContentFile } from '../../modules/filters';
 
 export default function Home({ post }) {
   return (
@@ -34,7 +33,6 @@ export async function getPostData(id) {
   const fileContents = await readContentFile(fs, `apps/${id}`);
   return fileContents;
 }
-
 
 export async function getStaticProps({ params }) {
   // Add the "await" keyword like this:

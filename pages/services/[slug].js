@@ -1,13 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
-import { readContentFile } from "../../modules/filters";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import fs from 'fs';
+import { readContentFile } from '../../modules/filters';
 
+import { services } from '../../content/contents';
 
-import { services } from "../../content/contents";
-
-import Common from "../../components/content/Common";
+import Common from '../../components/content/Common';
 
 export default function Home({ post }) {
   return (
@@ -47,7 +46,7 @@ export async function getStaticProps({ ...ctx }) {
     };
   }
 
-  const content = await readContentFile(fs, "services/" + slug);
+  const content = await readContentFile(fs, 'services/' + slug);
   currentService.content = content.content;
 
   return {

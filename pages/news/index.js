@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import dayjs from "dayjs";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import dayjs from 'dayjs';
 
-import { importPosts } from "../../modules/filters";
+import { importPosts } from '../../modules/filters';
 
-import HomeNews from "../../components/home/HomeNews";
+import HomeNews from '../../components/home/HomeNews';
 
 export default function Home({ newsPosts }) {
   return (
@@ -22,7 +22,7 @@ Home.propTypes = {
 };
 
 export async function getStaticProps({ ...ctx }) {
-  const newsPosts = await importPosts("news", 30);
+  const newsPosts = await importPosts('news', 30);
   const now = dayjs();
   return {
     props: {

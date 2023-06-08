@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
-import dayjs from "dayjs";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import fs from 'fs';
+import dayjs from 'dayjs';
 
-import { importPosts, readContentFile } from "../../modules/filters";
+import { importPosts, readContentFile } from '../../modules/filters';
 
-import Post from "../../components/article/Post";
+import Post from '../../components/article/Post';
 
 export default function Home({ post }) {
   return (
@@ -23,12 +23,10 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const newsPosts = await importPosts("news", -1);
+  const newsPosts = await importPosts('news', -1);
   const now = dayjs();
   return {
-    paths: newsPosts
-      .filter((post) => now.diff(dayjs(post.date)) >= 0)
-      .map((post) => ({ params: { slug: post.slug } })),
+    paths: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0).map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }
@@ -36,7 +34,7 @@ export async function getStaticPaths({ ...ctx }) {
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
 
-  const content = await readContentFile(fs, "news/" + slug);
+  const content = await readContentFile(fs, 'news/' + slug);
 
   return {
     props: {

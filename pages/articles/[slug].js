@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import fs from 'fs';
 
-import { importPosts, readContentFile } from "../../modules/filters";
+import { importPosts, readContentFile } from '../../modules/filters';
 
-import Post from "../../components/article/Post";
+import Post from '../../components/article/Post';
 
 export default function Home({ post }) {
   return (
@@ -22,7 +22,7 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const newsPosts = await importPosts("blog", -1);
+  const newsPosts = await importPosts('blog', -1);
   return {
     paths: newsPosts.map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
@@ -32,7 +32,7 @@ export async function getStaticPaths({ ...ctx }) {
 export async function getStaticProps({ ...ctx }) {
   const { slug } = ctx.params;
 
-  const content = await readContentFile(fs, "blog/" + slug);
+  const content = await readContentFile(fs, 'blog/' + slug);
 
   return {
     props: {

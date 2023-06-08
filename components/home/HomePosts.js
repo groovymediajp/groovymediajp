@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Link from "next/link";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
 
-import GroovyMediaIcon from "../layout/GroovyMediaIcon";
-import { dateFormat } from "../../modules/filters";
+import GroovyMediaIcon from '../layout/GroovyMediaIcon';
+import { dateFormat } from '../../modules/filters';
 
 export default function HomePosts({ posts }) {
   // if (!posts || posts.length <= 0) {

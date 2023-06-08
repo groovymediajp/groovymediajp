@@ -5,7 +5,6 @@ import remark from "remark"
 import html from "remark-html"
 import matter from "gray-matter";
 
-const DIR = path.join(process.cwd(), "content")
 const EXTENSION = ".md"
 
 export async function importPosts(dir = 'news', limit = 6) {
@@ -42,6 +41,7 @@ export async function importPosts(dir = 'news', limit = 6) {
 };
 
 export async function readContentFile(fs, slug) {
+  const DIR = path.join(process.cwd(), "content")
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8')
   const matterResult = matter(raw)
   const { title, date: rawDate } = matterResult.data

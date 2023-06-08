@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import fs from "fs";
-import { readContentFile } from "../../modules/filters";
+import remark from 'remark'
+import html from 'remark-html';
 
 import { attributes } from "../../content/home.md";
 import Common from "../../components/content/Common";
+import { readContentFile } from "../../modules/filters";
 
 export default function Home({ post }) {
   return (
@@ -29,32 +31,57 @@ export async function getStaticPaths({ ...ctx }) {
     fallback: false,
   };
 }
+export async function getPostData(id) {
+  const fileContents = await readContentFile(fs, `apps/${id}`);
 
-export async function getStaticProps({ ...ctx }) {
-  const { slug } = ctx.params;
-  const { apps } = attributes;
+  // // Use gray-matter to parse the post metadata section
+  // const matterResult = matter(fileContents);
 
-  let currentApp = null;
-  apps.forEach((app) => {
-    if (app.slug === slug) {
-      currentApp = app;
-    }
-  });
+  // // Use remark to convert markdown into HTML string
+  // const processedContent = await remark()
+  //   .use(html)
+  //   .process(matterResult.content);
+  // const contentHtml = processedContent.toString();
 
-  if (!currentApp) {
-    return {
-      notFound: true,
-    };
-  }
+  // Combine the data with the id and contentHtml
+  console.log(fileContents);
+  return fileContents;
+}
 
-  const content = await readContentFile(fs, "apps/" + slug);
-  // console.log("content", content);
-  currentApp.content = content.content;
-  // currentApp.title = null;
+
+export async function getStaticProps({ params }) {
+  // Add the "await" keyword like this:
+  const postData = await getPostData(params.slug);
 
   return {
     props: {
-      post: currentApp,
+      post: postData,
     },
   };
+  // const { slug } = ctx.params;
+  // const { apps } = attributes;
+
+  // let currentApp = null;
+  // apps.forEach((app) => {
+  //   if (app.slug === slug) {
+  //     currentApp = app;
+  //   }
+  // });
+
+  // if (!currentApp) {
+  //   return {
+  //     notFound: true,
+  //   };
+  // }
+
+  // const content = await readContentFile(fs, "apps/" + slug);
+  // // console.log("content", content);
+  // currentApp.content = content.content;
+  // // currentApp.title = null;
+
+  // return {
+  //   props: {
+  //     post: currentApp,
+  //   },
+  // };
 }

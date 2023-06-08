@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import { attributes } from "../../content/home.md";
+import {products, services} from "../../content/contents";
 
 export default function Footer() {
-  const { apps, services } = attributes;
-
   return (
     <footer className="bg-gray-800" aria-labelledby="footerHeading">
       <h2 id="footerHeading" className="sr-only">
@@ -17,12 +15,12 @@ export default function Footer() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                  Shopify Apps
+                  Products
                 </h3>
                 <ul className="mt-4 space-y-4">
-                  {apps.map((app, app_index) => (
-                    <li key={app_index}>
-                      <Link key={app.slug} href={`/shopifyapps/${app.slug}`} className="text-base text-gray-300 hover:text-white">
+                  {products.map((app, app_index) => (
+                    <li key={app.slug}>
+                      <Link href={`/products/${app.slug}`} className="text-base text-gray-300 hover:text-white">
                         {app.name}
                       </Link>
                     </li>

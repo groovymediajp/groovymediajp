@@ -4,25 +4,6 @@ backend:
 media_folder: public/img
 public_folder: img
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-    - label: "トップページ/共通コンテンツ"
-      name: "home"
-      file: "content/home.md"
-      fields:
-        - label: 'アプリ一覧'
-          name: "apps"
-          widget: list
-          fields:
-            - { label: "名称", name: "name", widget: "string"}
-            - { label: "詳細", name: "description", widget: "text"}
-        - label: 'サービス一覧'
-          name: "services"
-          widget: list
-          fields:
-            - { label: "名称", name: "name", widget: "string"}
-            - { label: "詳細", name: "description", widget: "text"}
   - label: 'News'
     name: 'news'
     folder: 'content/news'

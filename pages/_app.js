@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         color="#29D"
         startPosition={0.3}
         stopDelayMs={200}
-        height="3"
+        height={3}
       />
       <Header />
       <Component {...pageProps} />

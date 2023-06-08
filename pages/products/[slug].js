@@ -5,7 +5,8 @@ import fs from "fs";
 import remark from 'remark'
 import html from 'remark-html';
 
-import { attributes } from "../../content/home.md";
+
+import {products} from "../../content/contents";
 import Common from "../../components/content/Common";
 import { readContentFile } from "../../modules/filters";
 
@@ -24,10 +25,9 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const { apps } = attributes;
-
+  console.log(ctx)
   return {
-    paths: apps.map((app) => ({ params: { slug: app.slug } })),
+    paths: products.map((app) => ({ params: { slug: app.slug } })),
     fallback: false,
   };
 }

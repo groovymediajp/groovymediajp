@@ -8,34 +8,20 @@ import {
   EnvelopeIcon,
   FingerPrintIcon,
   SquaresPlusIcon,
+  ArrowTopRightOnSquareIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Link from "next/link";
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon, ShoppingCartIcon } from '@heroicons/react/20/solid'
 
-const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-  { name: 'Shopifyストアで見る', href: '#', icon: ShoppingCartIcon },
-  { name: '営業に問い合わせる', href: '#', icon: EnvelopeIcon },
-]
+import { products, services, callsToAction } from '../../content/contents';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-import { attributes } from "../../content/home.md";
-
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const products = attributes.apps;
-  const services = attributes.services;
 
   return (
     <header className="bg-white">
@@ -43,7 +29,7 @@ export default function Example() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">GroovyMedia</span>
-            <img className="h-8 w-auto sm:h-10" src="/logo.svg" alt="" />
+            <img className="h-8 w-auto sm:h-10" src="/assets/logo.svg" alt="" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -80,13 +66,19 @@ export default function Example() {
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        {item.image ? (
+                          <img src={item.image}  className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" alt=""  />
+                        ) : (
+                          <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                        )}
                       </div>
                       <div className="flex-auto">
-                        <Link href={item.href} className="block font-semibold text-gray-900">
+                        <Popover.Button as={item.href.match('http') ? 'a' : Link} href={item.href} target={item.href.match('http') ? '_blank' : null} rel="noreferrer" className="block font-semibold text-gray-900">
                           {item.name}
+                          {item.href.match('http') && (<ArrowTopRightOnSquareIcon className="inline h-4 w-4 text-gray-600 group-hover:text-indigo-600" />)}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </Popover.Button>
+
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -94,14 +86,16 @@ export default function Example() {
                 </div>
                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                   {callsToAction.map((item) => (
-                    <Link
+                    <Popover.Button
+                      as={item.href.match('http') ? 'a' : Link}
+                      target={item.href.match('http') ? '_blank' : null}
                       key={item.name}
                       href={item.href}
                       className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                     >
                       <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                       {item.name}
-                    </Link>
+                    </Popover.Button>
                   ))}
                 </div>
               </Popover.Panel>
@@ -134,10 +128,11 @@ export default function Example() {
                         <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                       </div>
                       <div className="flex-auto">
-                        <Link href={item.href} className="block font-semibold text-gray-900">
+                        <Popover.Button as={item.href.match('http') ? 'a' : Link} href={item.href} target={item.href.match('http') ? '_blank' : null} rel="noreferrer" className="block font-semibold text-gray-900">
                           {item.name}
+                          {item.href.match('http') && (<ArrowTopRightOnSquareIcon className="inline h-4 w-4 text-gray-600 group-hover:text-indigo-600" />)}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </Popover.Button>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -177,7 +172,7 @@ export default function Example() {
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">GroovyMedia</span>
-              <img className="h-8 w-auto sm:h-10" src="/logo.svg" alt="" />
+              <img className="h-8 w-auto sm:h-10" src="/assets/logo.svg" alt="" />
             </Link>
             <button
               type="button"
@@ -205,7 +200,8 @@ export default function Example() {
                         {[...products, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as="a"
+                            as={item.href.match('http') ? 'a' : Link}
+                            target={item.href.match('http') ? '_blank' : null}
                             href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
@@ -228,14 +224,15 @@ export default function Example() {
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
                         {[...services/*, ...callsToAction*/].map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                        <Disclosure.Button
+                          key={item.name}
+                          as={item.href.match('http') ? 'a' : Link}
+                          target={item.href.match('http') ? '_blank' : null}
+                          href={item.href}
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
-                            {item.name}
-                          </Disclosure.Button>
+                          {item.name}
+                        </Disclosure.Button>
                         ))}
                       </Disclosure.Panel>
                     </>

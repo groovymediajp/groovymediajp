@@ -4,7 +4,9 @@ import Head from "next/head";
 import fs from "fs";
 import { readContentFile } from "../../modules/filters";
 
-import { attributes } from "../../content/home.md";
+
+import { services } from "../../content/contents";
+
 import Common from "../../components/content/Common";
 
 export default function Home({ post }) {
@@ -22,8 +24,6 @@ Home.propTypes = {
 };
 
 export async function getStaticPaths({ ...ctx }) {
-  const { services } = attributes;
-
   return {
     paths: services.map((service) => ({ params: { slug: service.slug } })),
     fallback: false,

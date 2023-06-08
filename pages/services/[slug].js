@@ -24,33 +24,22 @@ Home.propTypes = {
 
 export async function getStaticPaths() {
   return {
-    paths: services.map((service) => ({ params: { slug: service.slug } })),
+    paths: services.map((app) => ({ params: { slug: app.slug } })),
     fallback: false,
   };
 }
+export async function getPostData(id) {
+  const fileContents = await readContentFile(fs, `services/${id}`);
+  return fileContents;
+}
 
-export async function getStaticProps({ ...ctx }) {
-  const { slug } = ctx.params;
-
-  let currentService = null;
-  services.forEach((service) => {
-    if (service.slug === slug) {
-      currentService = service;
-    }
-  });
-
-  if (!currentService) {
-    return {
-      notFound: true,
-    };
-  }
-
-  const content = await readContentFile(fs, 'services/' + slug);
-  currentService.content = content.content;
+export async function getStaticProps({ params }) {
+  // Add the "await" keyword like this:
+  const postData = await getPostData(params.slug);
 
   return {
     props: {
-      post: currentService,
+      post: postData,
     },
   };
 }

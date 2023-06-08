@@ -23,11 +23,12 @@ Home.propTypes = {
 
 export async function getStaticPaths() {
   return {
-    paths: products.map((app) => ({ params: { slug: app.slug } })),
+    paths: products.map((app) => !app.href.match('http') && { params: { slug: app.slug } }).filter((n) => n),
     fallback: false,
   };
 }
 export async function getPostData(id) {
+  console.log(`apps/${id}`);
   const fileContents = await readContentFile(fs, `apps/${id}`);
   return fileContents;
 }

@@ -1,36 +1,4 @@
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CodeBracketIcon,
-  CursorArrowRaysIcon,
-  EnvelopeIcon,
-  FingerPrintIcon,
-  ShoppingCartIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
-
-// services:
-//   - description: ''
-//     name:
-//     slug: appdev
-//     icon: wrench
-//     tags: 開発支援,Shopify
-//     href: /services/appdev
-//   - description:
-//     name:
-//     slug: storedev
-//     icon: cart
-//     tags: EC支援,Shopify
-//     href: /services/storedev
-//   - description: ''
-//     name:
-//     slug: subscription
-//     icon: repeat
-//     tags: EC支援,Shopify
-//     href: /services/subscription
-// ---
+import { ArrowPathIcon, CodeBracketIcon, EnvelopeIcon, ShoppingCartIcon } from '@heroicons/react/24/outline';
 
 export const products = [
   {
@@ -69,7 +37,7 @@ export const services = [
     name: 'Shopifyアプリ カスタム開発',
     description:
       'Shopifyのテーマ/既存アプリだけでは不十分さを感じていませんか。御社のオペレーションや会計に基づいたカスタムアプリを開発します。要件として何を作るべきかの支援〜実開発までを行っています。',
-    href: '#',
+    href: '/services/appdev',
     icon: CodeBracketIcon,
     slug: 'appdev',
   },
@@ -77,7 +45,7 @@ export const services = [
     name: 'Shopifyストア 開設・運営支援',
     description:
       'Shopifyのストアをどう開設するべきか、デザインや運営を支援し、体制構築をサポートします。まだ、実運営支援及び、運営の自動化を実現するためのシステム・アプリ導入支援も行っています。',
-    href: '#',
+    href: '/services/storedev',
     icon: ShoppingCartIcon,
     slug: 'storedev',
   },
@@ -85,7 +53,7 @@ export const services = [
     name: 'サブスクリプション支援',
     description:
       '継続課金ビジネスは導入することで御社の収益モデルを根本から変える可能性がある一方、独特の難しさ、大変さが存在します。それらをアドバイスし、成功に導きます。',
-    href: '#',
+    href: '/services/subscription',
     icon: ArrowPathIcon,
     slug: 'subscription',
   },

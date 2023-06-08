@@ -34,13 +34,11 @@ export default function HomeNews({ posts, singlecolumn }) {
                     </span>;
                   })}
               </div>
-              <Link href={`/news/${post.slug}`}>
-                <a className="block mt-4">
-                  <p className="text-xl font-semibold text-gray-900">
-                    {post.title}
-                  </p>
-                  <p className="mt-3 text-base text-gray-500">{post.excerpt}</p>
-                </a>
+              <Link href={`/news/${post.slug}`} className="block mt-4">
+                <p className="text-xl font-semibold text-gray-900">
+                  {post.title}
+                </p>
+                <p className="mt-3 text-base text-gray-500">{post.excerpt}</p>
               </Link>
               <div className="mt-6 flex items-center">
                 <div className="flex-shrink-0">

@@ -61,17 +61,15 @@ export default function HeaderSmartphoneMenu({ open, close }) {
               <div className="mt-6">
                 <nav className="grid gap-y-8">
                   {apps.map((app) => (
-                    <Link key={app.slug} href={`/shopifyapps/${app.slug}`}>
-                      <a className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                        <Icon
-                          path={mdiCart}
-                          size={1}
-                          className="flex-shrink-0 h-6 w-6 text-green-600"
-                        />
-                        <span className="ml-3 text-base font-medium text-gray-900">
-                          {app.name}
-                        </span>
-                      </a>
+                    <Link key={app.slug} href={`/shopifyapps/${app.slug}`} className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                      <Icon
+                        path={mdiCart}
+                        size={1}
+                        className="flex-shrink-0 h-6 w-6 text-green-600"
+                      />
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                        {app.name}
+                      </span>
                     </Link>
                   ))}
                 </nav>
@@ -80,18 +78,14 @@ export default function HeaderSmartphoneMenu({ open, close }) {
             <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 {services.map((service) => (
-                  <Link key={service.slug} href={`/services/${service.slug}`}>
-                    <a className="text-base font-medium text-gray-900 hover:text-gray-700">
-                      {service.name}
-                    </a>
+                  <Link key={service.slug} href={`/services/${service.slug}`} className="text-base font-medium text-gray-900 hover:text-gray-700">
+                    {service.name}
                   </Link>
                 ))}
               </div>
               <div>
-                <Link href="/contact">
-                  <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
-                    担当者に相談する
-                  </a>
+                <Link href="/contact" className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
+                  担当者に相談する
                 </Link>
               </div>
             </div>

@@ -65,22 +65,20 @@ export default function HeaderServices() {
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
               <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                 {services.map((service) => (
-                  <Link key={service.slug} href={`/services/${service.slug}`}>
-                    <a className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                      <Icon
-                        path={icons[service.icon]}
-                        size={1}
-                        className="flex-shrink-0 h-6 w-6 text-green-600"
-                      />
-                      <div className="ml-4">
-                        <p className="text-base font-medium text-gray-900">
-                          {service.name}
-                        </p>
-                        <p className="mt-1 text-sm text-gray-500">
-                          {service.description}
-                        </p>
-                      </div>
-                    </a>
+                  <Link key={service.slug} href={`/services/${service.slug}`} className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                    <Icon
+                      path={icons[service.icon]}
+                      size={1}
+                      className="flex-shrink-0 h-6 w-6 text-green-600"
+                    />
+                    <div className="ml-4">
+                      <p className="text-base font-medium text-gray-900">
+                        {service.name}
+                      </p>
+                      <p className="mt-1 text-sm text-gray-500">
+                        {service.description}
+                      </p>
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -120,11 +118,9 @@ export default function HeaderServices() {
                   </ul>
                 </div>
                 <div className="mt-5 text-sm">
-                  <Link href="/articles/">
-                    <a className="font-medium text-green-600 hover:text-green-500">
-                      &nbsp;すべての投稿を見る&nbsp;
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
+                  <Link href="/articles/"  className="font-medium text-green-600 hover:text-green-500">
+                    &nbsp;すべての投稿を見る&nbsp;
+                    <span aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
               </div> */}

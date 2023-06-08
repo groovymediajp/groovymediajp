@@ -22,10 +22,8 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {apps.map((app, app_index) => (
                     <li key={app_index}>
-                      <Link key={app.slug} href={`/shopifyapps/${app.slug}`}>
-                        <a className="text-base text-gray-300 hover:text-white">
-                          {app.name}
-                        </a>
+                      <Link key={app.slug} href={`/shopifyapps/${app.slug}`} className="text-base text-gray-300 hover:text-white">
+                        {app.name}
                       </Link>
                     </li>
                   ))}
@@ -38,10 +36,8 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {services.map((service) => (
                     <li key={service.slug}>
-                      <Link href={`/services/${service.slug}`}>
-                        <a className="text-base text-gray-300 hover:text-white">
-                          {service.name}
-                        </a>
+                      <Link href={`/services/${service.slug}`} className="text-base text-gray-300 hover:text-white">
+                        {service.name}
                       </Link>
                     </li>
                   ))}
@@ -55,26 +51,20 @@ export default function Footer() {
                 </h3>
                 <ul className="mt-4 space-y-4">
                   <li>
-                    <Link href="/about">
-                      <a className="text-base text-gray-300 hover:text-white">
-                        会社概要
-                      </a>
+                    <Link href="/about" className="text-base text-gray-300 hover:text-white">
+                      会社概要
                     </Link>
                   </li>
 
                   <li>
-                    <Link href="/articles/">
-                      <a className="text-base text-gray-300 hover:text-white">
-                        ブログ記事
-                      </a>
+                    <Link href="/articles/" className="text-base text-gray-300 hover:text-white">
+                      ブログ記事
                     </Link>
                   </li>
 
                   <li>
-                    <Link href="/contact">
-                      <a className="text-base text-gray-300 hover:text-white">
-                        お問い合わせ
-                      </a>
+                    <Link href="/contact" className="text-base text-gray-300 hover:text-white">
+                      お問い合わせ
                     </Link>
                   </li>
 

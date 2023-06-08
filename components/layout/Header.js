@@ -14,10 +14,8 @@ export default function Header() {
           <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <Link href="/">
-                <a>
-                  <span className="sr-only">GroovyMedia</span>
-                  <img className="h-8 w-auto sm:h-10" src="/logo.svg" alt="" />
-                </a>
+                <span className="sr-only">GroovyMedia</span>
+                <img className="h-8 w-auto sm:h-10" src="/logo.svg" alt="" />
               </Link>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
@@ -50,22 +48,16 @@ export default function Header() {
             <nav className="hidden md:flex space-x-10">
               <HeaderApps />
               <HeaderServices />
-              <Link href="/news/">
-                <a className="text-base font-medium text-gray-500 hover:text-gray-900">
+              <Link href="/news/" className="text-base font-medium text-gray-500 hover:text-gray-900">
                   お知らせ
-                </a>
               </Link>
-              <Link href="/about">
-                <a className="text-base font-medium text-gray-500 hover:text-gray-900">
-                  会社概要
-                </a>
+              <Link href="/about" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                会社概要
               </Link>
             </nav>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Link href="/contact">
-                <a className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
-                  お問い合わせ
-                </a>
+              <Link href="/contact"  className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
+                お問い合わせ
               </Link>
             </div>
           </div>

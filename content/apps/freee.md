@@ -1,5 +1,5 @@
 ---
-title: CSVダウンロード
+title: かんたん会計freee売上データ連携
 date: 2023-06-08T04:00:00.000Z
 ---
 ## 会計freeeとShopifyの売上を簡単に連動させます

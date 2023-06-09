@@ -4,6 +4,32 @@ backend:
 media_folder: public/img
 public_folder: img
 collections:
+  - label: '製品'
+    name: 'apps'
+    folder: 'content/apps'
+    create: false
+    fields:
+      - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+      - { label: '投稿日時', name: 'date', widget: 'datetime', required: true }
+      - { label: '本文', name: 'body', widget: 'markdown', required: true }
+  - label: 'サービス'
+    name: 'services'
+    folder: 'content/services'
+    create: false
+    fields:
+      - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+      - { label: '投稿日時', name: 'date', widget: 'datetime', required: true }
+      - { label: '本文', name: 'body', widget: 'markdown', required: true }
+  - label: 'Blog'
+    name: 'blog'
+    folder: 'content/blog'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}'
+    fields:
+      - { label: 'タイトル', name: 'title', widget: 'string', required: true }
+      - { label: '投稿日時', name: 'date', widget: 'datetime', required: true }
+      - { label: 'サムネイル画像', name: 'thumbnail', widget: 'image', required: false }
+      - { label: '本文', name: 'body', widget: 'markdown', required: true }
   - label: 'News'
     name: 'news'
     folder: 'content/news'

@@ -215,6 +215,7 @@ export default function Example() {
                           <Disclosure.Button
                             key={item.name}
                             as={item.href.match('http') ? 'a' : Link}
+                            onClick={() => setMobileMenuOpen(false)}
                             target={item.href.match('http') ? '_blank' : null}
                             href={item.href}
                             className='block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50'
@@ -241,6 +242,7 @@ export default function Example() {
                           <Disclosure.Button
                             key={item.name}
                             as={item.href.match('http') ? 'a' : Link}
+                            onClick={() => setMobileMenuOpen(false)}
                             target={item.href.match('http') ? '_blank' : null}
                             href={item.href}
                             className='block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50'
@@ -252,22 +254,25 @@ export default function Example() {
                     </>
                   )}
                 </Disclosure>
-                <a
+                <Link
                   href='/news/'
+                  onClick={() => setMobileMenuOpen(false)}
                   className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                 >
                   お知らせ
-                </a>
-                <a
+                </Link>
+                <Link
                   href='/about'
+                  onClick={() => setMobileMenuOpen(false)}
                   className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                 >
                   会社概要
-                </a>
+                </Link>
               </div>
               <div className='py-6'>
                 <Link
                   href='/contact'
+                  onClick={() => setMobileMenuOpen(false)}
                   className='whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700'
                 >
                   お問い合わせ

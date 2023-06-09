@@ -91,7 +91,7 @@ export default function Common({ post }) {
               {dateFormat(post.date, false)}
             </span> */}
             <span className='mt-2 pb-8 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
-              {post.name}
+              {post.title}
             </span>
           </h1>
         </div>

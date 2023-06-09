@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import fs from 'fs';
-import { readContentFile } from '../../modules/filters';
+import { readContentFile } from '../modules/filters';
 
-import { services } from '../../content/contents';
-
-import Common from '../../components/content/Common';
+import Common from '../components/content/Common';
 
 export default function Home({ post }) {
   return (
@@ -22,20 +20,14 @@ Home.propTypes = {
   post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths() {
-  return {
-    paths: services.map((app) => ({ params: { slug: app.slug } })),
-    fallback: false,
-  };
-}
 export async function getPostData(id) {
-  const fileContents = await readContentFile(fs, `services/${id}`);
+  const fileContents = await readContentFile(fs, `static/${id}`);
   return fileContents;
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   // Add the "await" keyword like this:
-  const postData = await getPostData(params.slug);
+  const postData = await getPostData('privacy');
 
   return {
     props: {

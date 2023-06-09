@@ -8,10 +8,11 @@ import Common from '../../components/content/Common';
 import { readContentFile } from '../../modules/filters';
 
 export default function Home({ post }) {
+  console.log(post.title);
   return (
     <>
       <Head>
-        <title>{post.title} - 株式会社グルーヴィーメディア</title>
+        <title>{`${post.title} - 株式会社グルーヴィーメディア`}</title>
       </Head>
       <Common post={post} />
     </>

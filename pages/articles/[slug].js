@@ -11,7 +11,7 @@ export default function Home({ post }) {
   return (
     <>
       <Head>
-        <title>お知らせ - 株式会社グルーヴィーメディア</title>
+        <title>{post.title} - 株式会社グルーヴィーメディア</title>
       </Head>
       <Post post={post} />
     </>

@@ -253,13 +253,13 @@ export default function Example() {
                   )}
                 </Disclosure>
                 <a
-                  href='#'
+                  href='/news/'
                   className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                 >
                   お知らせ
                 </a>
                 <a
-                  href='#'
+                  href='/about'
                   className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
                 >
                   会社概要

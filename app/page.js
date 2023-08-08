@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import dayjs from 'dayjs';
 
-import { importPosts } from '../modules/filters';
+import { importPosts } from '../libs/filters';
 
 import HomeNews from '../components/home/HomeNews';
 import HomePosts from '../components/home/HomePosts';
 
-export default function Home({ newsPosts, posts }) {
+import { client } from '../libs/client';
+
+export default async function Home() {
+  const data = await getData();
   return (
     <>
       <Head>
@@ -53,22 +56,20 @@ export default function Home({ newsPosts, posts }) {
           />
         </div>
       </main>
-      <HomePosts posts={posts} />
-      <HomeNews posts={newsPosts} />
+      {/* <HomePosts posts={posts} /> */}
+      <HomeNews posts={data.newsPosts} />
     </>
   );
 }
-Home.propTypes = {
-  posts: PropTypes.array.isRequired,
-  newsPosts: PropTypes.array.isRequired,
-};
 
-export async function generateStaticParams() {
-  const newsPosts = await importPosts('news', 6);
-  const posts = await importPosts('blog', 3);
-  const now = dayjs();
+export async function getData() {
+
+  const newsPosts = await client.get({endpoint: 'news', queries: {limit: 6}})
+  // const newsPosts = await importPosts('news', 6);
+  // const posts = await importPosts('blog', 3);
+  // const now = dayjs();
 
   return {
-    newsPosts,
+    newsPosts: newsPosts.contents,
   };
 }

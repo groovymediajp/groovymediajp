@@ -35,9 +35,9 @@ export default function Home(/*{ newsPosts, posts }*/) {
               <div className='py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
                 <dt className='text-sm font-medium text-gray-500'>住所</dt>
                 <dd className='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>
-                  〒107‐0061
+                  〒107‐0052
                   <br />
-                  東京都港区北青山2－7－13 プラセオ青山ビル3階
+                  東京都港区赤坂6-2-5 方栄ビル3F
                 </dd>
               </div>
               <div className='py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>
@@ -48,10 +48,9 @@ export default function Home(/*{ newsPosts, posts }*/) {
                 <dt className='text-sm font-medium text-gray-500'>業務内容</dt>
                 <dd className='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>
                   <ul>
-                    <li>システム開発</li>
+                    <li>オンラインストア向け ソフトウェアの開発・販売</li>
                     <li>オンラインストア構築・運営のコンサルティング、運用代行</li>
-                    <li>インターネットメディア「サブスク」の運営</li>
-                    <li>コンテンツ制作、撮影</li>
+                    <li>システム開発・開発体制構築 </li>
                   </ul>
                 </dd>
               </div>

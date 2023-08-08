@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 import GroovyMediaIcon from '../layout/GroovyMediaIcon';
-import { dateFormat } from '../../modules/filters';
+import { dateFormat } from '../../libs/filters';
 
 export default function HomeNews({ posts, singlecolumn }) {
   return (
@@ -30,7 +30,7 @@ export default function HomeNews({ posts, singlecolumn }) {
                     </span>;
                   })}
               </div>
-              <Link href={`/news/${post.slug}`} className='block mt-4'>
+              <Link href={`/news/${post.id}`} className='block mt-4'>
                 <p className='text-xl font-semibold text-gray-900'>{post.title}</p>
                 <p className='mt-3 text-base text-gray-500'>{post.excerpt}</p>
               </Link>

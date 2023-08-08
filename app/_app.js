@@ -10,7 +10,7 @@ import Script from 'next/script';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 
-import { GA_MEASUREMENT_ID, pageview } from '../modules/gtag';
+import { GA_MEASUREMENT_ID, pageview } from '../libs/gtag';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

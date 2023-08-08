@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { dateFormat } from '../../modules/filters';
+import { dateFormat } from '../../libs/filters';
 /*
  <!--
   This example requires Tailwind CSS v2.0+
@@ -102,7 +102,7 @@ export default function Post({ post }) {
         <div className='text-lg max-w-prose mx-auto'>
           <h1>
             <span className='block text-base text-center text-green-600 font-semibold tracking-wide uppercase'>
-              {dateFormat(post.date, false)}
+              {dateFormat(post.publishedAt, false)}
             </span>
             <span className='mt-2 pb-8 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl'>
               {post.title}
@@ -119,7 +119,7 @@ export default function Post({ post }) {
           className='mt-12 prose prose-green prose-lg text-gray-500 mx-auto'
           style={{ minHeight: '800px' }}
           dangerouslySetInnerHTML={{
-            __html: post.content,
+            __html: `${post.content}`,
           }}
         ></div>
       </div>

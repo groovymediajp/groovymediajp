@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Common from '../components/content/Common';
+import Common from '../../components/content/Common';
 
 export default function Contact() {
   const react = (

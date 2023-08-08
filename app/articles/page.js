@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-import { importPosts } from '../../modules/filters';
+import { importPosts } from '../../libs/filters';
 
 // import HomePosts from '../../components/home/HomePosts';
 

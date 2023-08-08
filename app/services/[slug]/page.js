@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import fs from 'fs';
+import { readContentFile } from '../../../libs/filters';
 
-import { products } from '../../content/contents';
-import Common from '../../components/content/Common';
-import { readContentFile } from '../../modules/filters';
+import { services } from '../../../content/contents';
+
+import Common from '../../../components/content/Common';
 
 export default function Home({ post }) {
-  console.log(post.title);
   return (
     <>
       <Head>
@@ -24,13 +24,12 @@ Home.propTypes = {
 
 export async function getStaticPaths() {
   return {
-    paths: products.map((app) => !app.href.match('http') && { params: { slug: app.slug } }).filter((n) => n),
+    paths: services.map((app) => ({ params: { slug: app.slug } })),
     fallback: false,
   };
 }
 export async function getPostData(id) {
-  console.log(`apps/${id}`);
-  const fileContents = await readContentFile(fs, `apps/${id}`);
+  const fileContents = await readContentFile(fs, `services/${id}`);
   return fileContents;
 }
 

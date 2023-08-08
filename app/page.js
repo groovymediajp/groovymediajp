@@ -62,7 +62,7 @@ export default async function Home() {
 
 export async function getData() {
   const newsPosts = await client.get({endpoint: 'news', queries: {limit: 6}})
-  console.log(newsPosts);
+  // console.log(newsPosts);
 
   return {
     newsPosts: newsPosts.contents,

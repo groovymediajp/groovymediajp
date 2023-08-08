@@ -6,6 +6,8 @@ import HomeNews from '../components/home/HomeNews';
 
 import { client } from '../libs/client';
 
+export const revalidate = 0;
+
 export default async function Home() {
   const data = await getData();
   return (
@@ -59,11 +61,8 @@ export default async function Home() {
 }
 
 export async function getData() {
-
   const newsPosts = await client.get({endpoint: 'news', queries: {limit: 6}})
-  // const newsPosts = await importPosts('news', 6);
-  // const posts = await importPosts('blog', 3);
-  // const now = dayjs();
+  console.log(newsPosts);
 
   return {
     newsPosts: newsPosts.contents,

@@ -1,7 +1,10 @@
 import React from 'react';
-import Head from 'next/head';
 
 import Common from '../../components/content/Common';
+
+export const metadata = {
+  title: 'お問い合わせ - 株式会社グルーヴィーメディア',
+}
 
 export default function Contact() {
   const react = (
@@ -24,9 +27,6 @@ export default function Contact() {
   };
   return (
     <>
-      <Head>
-        <title>お問い合わせ - 株式会社グルーヴィーメディア</title>
-      </Head>
       <Common post={post} />
     </>
   );

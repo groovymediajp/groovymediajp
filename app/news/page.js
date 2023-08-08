@@ -8,13 +8,14 @@ import { importPosts } from '../../libs/filters';
 
 import HomeNews from '../../components/home/HomeNews';
 
+export const metadata = {
+  title: 'お知らせ - 株式会社グルーヴィーメディア',
+}
+
 export default async function Home() {
   const data = await getData();
   return (
     <>
-      <Head>
-        <title>お知らせ - 株式会社グルーヴィーメディア</title>
-      </Head>
       <HomeNews posts={data.newsPosts} singlecolumn />
     </>
   );

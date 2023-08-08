@@ -1,12 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Head from 'next/head';
-import dayjs from 'dayjs';
-
-import { importPosts } from '../libs/filters';
 
 import HomeNews from '../components/home/HomeNews';
-import HomePosts from '../components/home/HomePosts';
+// import HomePosts from '../components/home/HomePosts';
 
 import { client } from '../libs/client';
 

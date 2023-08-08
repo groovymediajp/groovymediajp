@@ -1,13 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-// import { importPosts } from '../modules/filters';
+export const metadata = {
+  title: '会社案内 - 株式会社グルーヴィーメディア',
+}
 
-// import HomeNews from '../components/home/HomeNews';
-// import HomePosts from '../components/home/HomePosts';
-
-export default function Home(/*{ newsPosts, posts }*/) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -61,14 +59,3 @@ export default function Home(/*{ newsPosts, posts }*/) {
     </>
   );
 }
-// Home.propTypes = {
-//   posts: PropTypes.array.isRequired,
-//   newsPosts: PropTypes.array.isRequired,
-// };
-
-// export async function getStaticProps() {
-//   const newsPosts = await importPosts('news', 6);
-//   const posts = await importPosts('blog', 3);
-
-//   return { props: { newsPosts, posts } };
-// }

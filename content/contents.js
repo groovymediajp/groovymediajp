@@ -7,6 +7,7 @@ export const products = [
     href: 'https://subscription.groovymedia.jp/',
     image: '/assets/apps/subscription.png',
     slug: 'subscription',
+    remote: true,
   },
   {
     name: 'かんたん会計freee売上データ連携',

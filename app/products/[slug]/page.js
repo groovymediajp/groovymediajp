@@ -11,12 +11,20 @@ export default async function ProducDetail({ params }) {
   const data = await getData(params.slug);
   return (
     <>
-      <Head>
-        <title>{`${data.post.title} - 株式会社グルーヴィーメディア`}</title>
-      </Head>
       <Common post={data.post} />
     </>
   );
+}
+
+export async function generateMetadata({params}) {
+  const data = await getData(params.slug);
+  return {
+    title: `${data.post.title} - 株式会社グルーヴィーメディア`,
+  };
+}
+
+export async function generateStaticParams() {
+  return products.filter(product => !product.remote).map((app) => ({ slug: app.slug }))
 }
 
 export async function getData(id) {
@@ -25,26 +33,3 @@ export async function getData(id) {
     post: post,
   };
 }
-
-// export async function getStaticPaths() {
-//   return {
-//     paths: products.map((app) => !app.href.match('http') && { params: { slug: app.slug } }).filter((n) => n),
-//     fallback: false,
-//   };
-// }
-// export async function getPostData(id) {
-//   console.log(`products/${id}`);
-//   const fileContents = await readContentFile(fs, `products/${id}`);
-//   return fileContents;
-// }
-
-// export async function getStaticProps({ params }) {
-//   // Add the "await" keyword like this:
-//   const postData = await getPostData(params.slug);
-
-//   return {
-//     props: {
-//       post: postData,
-//     },
-//   };
-// }

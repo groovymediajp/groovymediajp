@@ -16,9 +16,21 @@ export default async function NewsDetail({ params }) {
   );
 }
 
+export async function generateMetadata({params}) {
+  const post = await client.get({endpoint: 'news', contentId: params.slug})
+  return {
+    title: `${post.title} - 株式会社グルーヴィーメディア`,
+  };
+}
+
 export async function getData(id) {
   const post = await client.get({endpoint: 'news', contentId: id})
   return {
     post: post,
   };
+}
+
+export async function generateStaticParams() {
+  const newsPosts = await client.get({endpoint: 'news', queries: {limit: 9999, fields: "id"}})
+  return newsPosts.contents.map((post) => ({ slug: post.id }))
 }

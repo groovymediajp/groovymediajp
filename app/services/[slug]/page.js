@@ -12,12 +12,16 @@ export default async function ServiceDetail({ params }) {
   const data = await getData(params.slug);
   return (
     <>
-      <Head>
-        <title>{`${data.post.title} - 株式会社グルーヴィーメディア`}</title>
-      </Head>
       <Common post={data.post} />
     </>
   );
+}
+
+export async function generateMetadata({params}) {
+  const data = await getData(params.slug);
+  return {
+    title: `${data.post.title} - 株式会社グルーヴィーメディア`,
+  };
 }
 
 export async function getData(id) {
@@ -27,28 +31,6 @@ export async function getData(id) {
   };
 }
 
-// Home.propTypes = {
-//   post: PropTypes.object.isRequired,
-// };
-
-// export async function getStaticPaths() {
-//   return {
-//     paths: services.map((app) => ({ params: { slug: app.slug } })),
-//     fallback: false,
-//   };
-// }
-// export async function getPostData(id) {
-//   const fileContents = await readContentFile(fs, `services/${id}`);
-//   return fileContents;
-// }
-
-// export async function getStaticProps({ params }) {
-//   // Add the "await" keyword like this:
-//   const postData = await getPostData(params.slug);
-
-//   return {
-//     props: {
-//       post: postData,
-//     },
-//   };
-// }
+export async function generateStaticParams() {
+  return services.map((app) => ({ slug: app.slug }))
+}

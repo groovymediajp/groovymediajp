@@ -7,40 +7,44 @@ import { products } from '../../../content/contents';
 import Common from '../../../components/content/Common';
 import { readContentFile } from '../../../libs/filters';
 
-export default function Home({ post }) {
-  console.log(post.title);
+export default async function ProducDetail({ params }) {
+  const data = await getData(params.slug);
   return (
     <>
       <Head>
-        <title>{`${post.title} - 株式会社グルーヴィーメディア`}</title>
+        <title>{`${data.post.title} - 株式会社グルーヴィーメディア`}</title>
       </Head>
-      <Common post={post} />
+      <Common post={data.post} />
     </>
   );
 }
-Home.propTypes = {
-  post: PropTypes.object.isRequired,
-};
 
-export async function getStaticPaths() {
+export async function getData(id) {
+  const post = await readContentFile(fs, `products/${id}`);
   return {
-    paths: products.map((app) => !app.href.match('http') && { params: { slug: app.slug } }).filter((n) => n),
-    fallback: false,
+    post: post,
   };
 }
-export async function getPostData(id) {
-  console.log(`apps/${id}`);
-  const fileContents = await readContentFile(fs, `apps/${id}`);
-  return fileContents;
-}
 
-export async function getStaticProps({ params }) {
-  // Add the "await" keyword like this:
-  const postData = await getPostData(params.slug);
+// export async function getStaticPaths() {
+//   return {
+//     paths: products.map((app) => !app.href.match('http') && { params: { slug: app.slug } }).filter((n) => n),
+//     fallback: false,
+//   };
+// }
+// export async function getPostData(id) {
+//   console.log(`products/${id}`);
+//   const fileContents = await readContentFile(fs, `products/${id}`);
+//   return fileContents;
+// }
 
-  return {
-    props: {
-      post: postData,
-    },
-  };
-}
+// export async function getStaticProps({ params }) {
+//   // Add the "await" keyword like this:
+//   const postData = await getPostData(params.slug);
+
+//   return {
+//     props: {
+//       post: postData,
+//     },
+//   };
+// }

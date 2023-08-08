@@ -41,7 +41,7 @@ export default function HomeNews({ posts, singlecolumn }) {
                 <div className='ml-3'>
                   <p className='text-sm font-medium text-gray-900'>GroovyMedia Staff</p>
                   <div className='flex space-x-1 text-sm text-gray-500'>
-                    <time dateTime={post.date}>{dateFormat(post.date, true)}</time>
+                    <time dateTime={post.publishedAt}>{dateFormat(post.publishedAt, true)}</time>
                     {/* <span aria-hidden="true">&middot;</span>
                       <span>6 min read</span> */}
                   </div>

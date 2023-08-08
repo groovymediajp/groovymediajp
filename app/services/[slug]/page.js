@@ -8,38 +8,47 @@ import { services } from '../../../content/contents';
 
 import Common from '../../../components/content/Common';
 
-export default function Home({ post }) {
+export default async function ServiceDetail({ params }) {
+  const data = await getData(params.slug);
   return (
     <>
       <Head>
-        <title>{`${post.title} - 株式会社グルーヴィーメディア`}</title>
+        <title>{`${data.post.title} - 株式会社グルーヴィーメディア`}</title>
       </Head>
-      <Common post={post} />
+      <Common post={data.post} />
     </>
   );
 }
-Home.propTypes = {
-  post: PropTypes.object.isRequired,
-};
 
-export async function getStaticPaths() {
+export async function getData(id) {
+  const post = await readContentFile(fs, `services/${id}`);
   return {
-    paths: services.map((app) => ({ params: { slug: app.slug } })),
-    fallback: false,
+    post: post,
   };
 }
-export async function getPostData(id) {
-  const fileContents = await readContentFile(fs, `services/${id}`);
-  return fileContents;
-}
 
-export async function getStaticProps({ params }) {
-  // Add the "await" keyword like this:
-  const postData = await getPostData(params.slug);
+// Home.propTypes = {
+//   post: PropTypes.object.isRequired,
+// };
 
-  return {
-    props: {
-      post: postData,
-    },
-  };
-}
+// export async function getStaticPaths() {
+//   return {
+//     paths: services.map((app) => ({ params: { slug: app.slug } })),
+//     fallback: false,
+//   };
+// }
+// export async function getPostData(id) {
+//   const fileContents = await readContentFile(fs, `services/${id}`);
+//   return fileContents;
+// }
+
+// export async function getStaticProps({ params }) {
+//   // Add the "await" keyword like this:
+//   const postData = await getPostData(params.slug);
+
+//   return {
+//     props: {
+//       post: postData,
+//     },
+//   };
+// }

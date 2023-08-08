@@ -8,7 +8,7 @@ import { importPosts } from '../../libs/filters';
 
 import HomeNews from '../../components/home/HomeNews';
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 export const metadata = {
   title: 'お知らせ - 株式会社グルーヴィーメディア',

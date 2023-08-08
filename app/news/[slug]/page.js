@@ -4,7 +4,7 @@ import {client} from '../../../libs/client';
 
 import Post from '../../../components/article/Post';
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function NewsDetail({ params }) {
   const data = await getData(params.slug);

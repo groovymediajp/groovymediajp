@@ -6,7 +6,7 @@ import HomeNews from '../components/home/HomeNews';
 
 import { client } from '../libs/client';
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function Home() {
   const data = await getData();

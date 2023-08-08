@@ -22,11 +22,17 @@ Home.propTypes = {
 };
 
 export async function getStaticProps() {
-  const newsPosts = await importPosts('news', 30);
-  const now = dayjs();
+  const newsPosts = await fetch('https://api.microcms.io/v1/groovymedia/news?limit=30', {
+    headers: {
+      'X-API-KEY': process.env.API_KEY,
+    },
+  });
+  // const newsPosts = await importPosts('news', 30);
+  // const now = dayjs();
   return {
     props: {
-      newsPosts: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0),
+      newsPosts,
+      // newsPosts: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0),
     },
   };
 }

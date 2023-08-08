@@ -63,15 +63,12 @@ Home.propTypes = {
   newsPosts: PropTypes.array.isRequired,
 };
 
-export async function getStaticProps() {
+export async function generateStaticParams() {
   const newsPosts = await importPosts('news', 6);
   const posts = await importPosts('blog', 3);
   const now = dayjs();
 
   return {
-    props: {
-      newsPosts: newsPosts.filter((post) => now.diff(dayjs(post.date)) >= 0),
-      posts,
-    },
+    newsPosts,
   };
 }

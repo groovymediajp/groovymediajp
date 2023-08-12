@@ -81,7 +81,7 @@ export default function ContactForm() {
       {({ errors, touched, isValid }) => (
         <Form>
           <div className="space-y-12">
-            <div className=" pb-12">
+            <div className=" pb-2">
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="sm:col-span-4">
                   <label
@@ -274,6 +274,107 @@ export default function ContactForm() {
             </div>
           </div>
 
+          <div className="mt-2 text-xs overflow-scroll border p-4 h-40">
+            ＜個人情報の取り扱いについて＞ (English below)
+            <ul>
+              <li>
+                この入力フォームでご提供いただく個人情報は、お問い合わせを受け付けて対応するために利用します。
+              </li>
+              <li>当個人情報を第三者に提供することはありません。</li>
+              <li>
+                当個人情報の取扱いを委託することがあります。委託にあたっては、委託先における個人情報の安全管理が図られるよう、委託先に対する必要かつ適切な監督を行います。
+              </li>
+              <li>
+                当個人情報の利用目的の通知、開示、内容の訂正・追加または削除、利用の停止・消去および第三者への提供の停止、第三者提供記録の開示（「開示等」といいます。）を受け付けております。開示等の請求等は、以下の「苦情及び相談窓口」で受け付けます。
+              </li>
+              <li>
+                個人情報の提供は任意です。ただし、個人情報を提供されない情報によっては、上記利用目的に記載の業務に支障が生じる恐れがあります。
+              </li>
+              <li>
+                当ホームページではクッキー等を用いておりますが、これによる個人情報の取得、利用は行っておりません。
+              </li>
+              <li>入力していただいた個人情報はSSLにより暗号化されます。</li>
+            </ul>
+            <br />
+            <br />
+            ＜個人情報保護管理者＞ 代表取締役　渡邊　翔太
+            <br />
+            ＜個人情報苦情及び相談窓口＞ 株式会社グルーヴィーメディア
+            <br />
+            苦情相談窓口責任者　菱沼　大輝
+            <br />
+            〒107-0052　東京都港区赤坂赤坂６丁目２番５号 方栄ビル3F
+            <br />
+            TEL：03-4530-3079　　メール：privacy@groovymedia.jp
+            <br />
+            （受付時間：10:00～18:00、土日祝日除く）
+            <hr />
+            [Handling of Personal Information]
+            <br />
+            The personal information provided in this form will be used only for
+            the purpose of receiving and responding to inquiries.
+            <ul>
+              <li>
+                We will not provide this personal information to any third
+                party.
+              </li>
+              <li>
+                We may outsource the handling of this personal information. When
+                entrusting the handling of personal information to a third
+                party, we will exercise necessary and appropriate supervision
+                over the entrusted party to ensure the safe management of
+                personal information by the entrusted party.
+              </li>
+              <li>
+                In the event that the Company is entrusted with the handling of
+                personal information, the Company will supervise the entrusted
+                party as necessary and appropriate to ensure the safe management
+                of personal information by the entrusted party. The Company
+                accepts requests for disclosure, etc. (Requests for Disclosure,
+                etc.). Requests for Disclosure, etc. are accepted at the
+                "Personal Information Complaints and Consultation Desk" below.
+              </li>
+              <li>
+                The provision of personal information is voluntary. However,
+                depending on the information not provided, there is a
+                possibility that it may interfere with the operations described
+                in the above Purposes of Use.
+              </li>
+              <li>
+                We use cookies, etc. on this website, but we do not obtain or
+                use personal information through these cookies, etc.
+              </li>
+              <li>
+                Personal information entered on this website is encrypted by
+                SSL.
+              </li>
+            </ul>
+            [Perfonal Information Protection Manager]
+            <br />
+            Shota Watanabe, Representative Director
+            <br />
+            <br />
+            [Personal Information Complaints and Consultation Desk]
+            <br />
+            Groovy Media Corporation
+            <br />
+            Complaints and Inquiries Desk Manager: Daiki Hishinuma
+            <br />
+            Foei Building 3F, 6-2-5 Akasaka Akasaka, Minato-ku, Tokyo 107-0052,
+            Japan
+            <br />
+            TEL: 03-4530-3079 E-mail: privacy@groovymedia.jp
+            <br />
+            (Office hours: 10:00-18:00, except Saturdays, Sundays and national
+            holidays)
+          </div>
+
+          <p className="text-sm">
+            上記を確認の上、ご同意いただける方は「同意して送信」ボタンを押してください。
+            / If you agree to the above, please click the "Agree and Submit"
+            button.
+          </p>
+
           {!isValid && (
             <p className="mt-2 text-sm text-red-600">
               記載内容に不足等がございました。ご確認の上、再度送信をしてください。
@@ -282,13 +383,13 @@ export default function ContactForm() {
             </p>
           )}
 
-          <div className="mt-6 flex items-center justify-center gap-x-6">
+          <div className="mt-4 flex items-center justify-center gap-x-6">
             <button
               type="submit"
               disabled={sending}
               className="rounded-md bg-indigo-600 px-8 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              送信 / Send
+              同意をして送信 / Agree and Submit
             </button>
           </div>
         </Form>

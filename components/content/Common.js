@@ -150,7 +150,7 @@ export default function Common({ post }) {
               {post.react}
             </div>
           )}
-          {post.name.indexOf("お問い合わせ") === -1 && (
+          {post.name && post.name.indexOf("お問い合わせ") === -1 && (
             <div className="text-center mt-10">
               <div className="mt-3 rounded-md shadow sm:mt-0">
                 <a

@@ -21,6 +21,7 @@
     "gray-matter": "^4.0.3",
     "microcms-js-sdk": "^2.5.0",
     "next": "13.4.13",
+    "node-zendesk": "^2.2.0",
     "postcss": "8.4.27",
     "raw-loader": "^4.0.2",
     "react": "18.2.0",

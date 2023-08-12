@@ -5,6 +5,7 @@ import { Formik, Field, Form } from "formik";
 
 export default function ContactForm() {
   const [sending, setSending] = React.useState(false);
+  const [sent, setSent] = React.useState(false);
   const validate = (values) => {
     const errors = {};
     if (!values.company) {
@@ -29,6 +30,18 @@ export default function ContactForm() {
 
     return errors;
   };
+
+  if (sent) {
+    return (
+      <div className="mt-6">
+        <p className="text-lg font-semibold text-gray-900">
+          {" "}
+          お問い合わせありがとうございました。{" "}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <Formik
       initialValues={{
@@ -60,6 +73,9 @@ export default function ContactForm() {
         }
 
         setSending(false);
+        setSent(true);
+
+        scrollTo(0, 0);
       }}
     >
       {({ errors, touched, isValid }) => (
@@ -166,7 +182,7 @@ export default function ContactForm() {
                         id="type-apps"
                         name="type"
                         type="radio"
-                        value="apps"
+                        value="Shopifyアプリケーションの不具合・質問 / Shopify app"
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
@@ -182,7 +198,7 @@ export default function ContactForm() {
                         id="type-shopify"
                         name="type"
                         type="radio"
-                        value="shopify"
+                        value="Shopifyテーマ導入、コンサルティング、開発案件へのお問い合わせ / Shopify theme development"
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
@@ -198,7 +214,7 @@ export default function ContactForm() {
                         id="type-development"
                         name="type"
                         type="radio"
-                        value="development"
+                        value="その他コンサルティング、開発案件へのお問い合わせ / Other"
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label
@@ -214,7 +230,7 @@ export default function ContactForm() {
                         id="type-company"
                         name="type"
                         type="radio"
-                        value="company"
+                        value="当社自体へのお問い合わせ / Contact to GroovyMedia Inc."
                         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                       />
                       <label

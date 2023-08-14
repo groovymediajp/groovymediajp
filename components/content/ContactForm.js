@@ -3,7 +3,12 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 
-export default function ContactForm() {
+import { useSearchParams } from "next/navigation";
+
+export default function ContactForm({ app }) {
+  const searchParams = useSearchParams();
+  console.log("user_id", searchParams.get("user_id"));
+  console.log("app", app);
   const [sending, setSending] = React.useState(false);
   const [sent, setSent] = React.useState(false);
   const validate = (values) => {
@@ -20,9 +25,12 @@ export default function ContactForm() {
       errors.email =
         "メールアドレスの形式が正しくありません / Invalid email address";
     }
-    if (!values.type) {
-      errors.type = "お問い合わせ種別は必須です / Inquiry type is required";
+    if (!app) {
+      if (!values.type) {
+        errors.type = "お問い合わせ種別は必須です / Inquiry type is required";
+      }
     }
+
     if (!values.content) {
       errors.content =
         "お問い合わせ内容は必須です / Contact detail is required";
@@ -30,6 +38,28 @@ export default function ContactForm() {
 
     return errors;
   };
+
+  const appNames = [
+    { value: "会計freee連動アプリ", label: "会計freee連動アプリ" },
+    { value: "かんたんサブスク", label: "かんたんサブスク" },
+    {
+      value: "日本対応CSV/Excelダウンロード",
+      label: "日本対応CSV/Excelダウンロード",
+    },
+    {
+      value: "かんたん商品カスタムオーダー",
+      label: "かんたん商品カスタムオーダー",
+    },
+    { value: "その他のアプリ・サポート", label: "その他のアプリ・サポート" },
+  ];
+  const inquiryTypes = [
+    { value: "機能の不具合", label: "機能の不具合" },
+    { value: "新機能の要望", label: "新機能の要望" },
+    { value: "設定について", label: "設定について" },
+    { value: "料金について", label: "料金について" },
+    { value: "打ち合わせ希望", label: "打ち合わせ希望" },
+    { value: "その他", label: "その他" },
+  ];
 
   if (sent) {
     return (
@@ -45,11 +75,15 @@ export default function ContactForm() {
   return (
     <Formik
       initialValues={{
-        company: "",
-        name: "",
-        email: "",
-        type: "",
-        content: "",
+        company: searchParams.get("company") || "",
+        name: searchParams.get("name") || "",
+        email: searchParams.get("email") || "",
+        type: searchParams.get("email") || "",
+        content: searchParams.get("user_id")
+          ? `システム ユーザID: ${searchParams.get("user_id")}\n\n`
+          : "",
+        appname: searchParams.get("appname") || "",
+        shopifyadmin: searchParams.get("shopifyadmin") || "",
       }}
       validate={validate}
       onSubmit={async (values) => {
@@ -66,8 +100,14 @@ export default function ContactForm() {
             },
             body: JSON.stringify(values),
           });
+          if (response.status !== 200) {
+            throw new Error(await response.text());
+          }
         } catch (error) {
           console.error(error);
+          alert(
+            "エラーが発生しました。お手数ですが、再度お試しください。 / Error occured. Please try again."
+          );
           setSending(false);
           return;
         }
@@ -127,6 +167,95 @@ export default function ContactForm() {
                   ) : null}
                 </div>
 
+                {app && (
+                  <>
+                    <div className="sm:col-span-4">
+                      <label
+                        htmlFor="appname"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        アプリの種類 / App Name
+                      </label>
+                      <div className="mt-2">
+                        <Field
+                          id="appname"
+                          name="appname"
+                          type="appname"
+                          as="select"
+                          className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900pe shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        >
+                          <option>--</option>
+                          {appNames.map((app) => (
+                            <option key={app.value} value={app.value}>
+                              {app.label}
+                            </option>
+                          ))}
+                        </Field>
+                      </div>
+                      {errors.appname && touched.appname ? (
+                        <p className="mt-2 text-sm text-red-600">
+                          {errors.appname}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div className="sm:col-span-4">
+                      <label
+                        htmlFor="shopifyadmin"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Shopify管理画面URL / Shopify Admin URL
+                      </label>
+                      <div className="mt-2">
+                        <Field
+                          id="shopifyadmin"
+                          name="shopifyadmin"
+                          type="shopifyadmin"
+                          className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900pe shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        />
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-gray-600">
+                        管理画面のURLをコピーアンドペーストして入れてください。(*.myshopify.com
+                        もしくは admin.shopify.com/***/ のようなURLです )
+                      </p>
+                      {errors.shopifyadmin && touched.shopifyadmin ? (
+                        <p className="mt-2 text-sm text-red-600">
+                          {errors.nashopifyadminme}
+                        </p>
+                      ) : null}
+                    </div>
+                    <div className="sm:col-span-4">
+                      <label
+                        htmlFor="appinquirytype"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        お問い合わせの種類 / App Inquiry type
+                      </label>
+                      <div className="mt-2">
+                        <Field
+                          id="appinquirytype"
+                          name="appinquirytype"
+                          type="appinquirytype"
+                          as="select"
+                          className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900pe shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        >
+                          <option>--</option>
+                          {inquiryTypes.map((app) => (
+                            <option key={app.value} value={app.value}>
+                              {app.label}
+                            </option>
+                          ))}
+                        </Field>
+                      </div>
+                      {errors.appinquirytype && touched.appinquirytype ? (
+                        <p className="mt-2 text-sm text-red-600">
+                          {errors.appinquirytype}
+                        </p>
+                      ) : null}
+                    </div>
+                  </>
+                )}
+
                 <div className="sm:col-span-4">
                   <label
                     htmlFor="email"
@@ -169,105 +298,94 @@ export default function ContactForm() {
                   ) : null}
                 </div>
 
-                <div className="col-span-full">
-                  <label
-                    htmlFor=""
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    お問い合わせ種別 / Inquiry type
-                  </label>
-                  <div className="mt-6 space-y-6">
-                    <div className="flex items-center gap-x-3">
-                      <Field
-                        id="type-apps"
-                        name="type"
-                        type="radio"
-                        value="Shopifyアプリケーションの不具合・質問 / Shopify app"
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                      <label
-                        htmlFor="type-apps"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Shopifyアプリケーションの不具合・質問 / Shopify app
-                        support
-                      </label>
-                    </div>
-                    <div className="flex items-center gap-x-3">
-                      <Field
-                        id="type-shopify"
-                        name="type"
-                        type="radio"
-                        value="Shopifyテーマ導入、コンサルティング、開発案件へのお問い合わせ / Shopify theme development"
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                      <label
-                        htmlFor="type-shopify"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Shopifyテーマ導入、コンサルティング、開発案件へのお問い合わせ
-                        / Shopify theme development
-                      </label>
-                    </div>
-                    <div className="flex items-center gap-x-3">
-                      <Field
-                        id="type-development"
-                        name="type"
-                        type="radio"
-                        value="その他コンサルティング、開発案件へのお問い合わせ / Other"
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                      <label
-                        htmlFor="type-development"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        その他コンサルティング、開発案件へのお問い合わせ / Other
-                        consulting and development inquiries
-                      </label>
-                    </div>
-                    <div className="flex items-center gap-x-3">
-                      <Field
-                        id="type-company"
-                        name="type"
-                        type="radio"
-                        value="当社自体へのお問い合わせ / Contact to GroovyMedia Inc."
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                      <label
-                        htmlFor="type-company"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        当社自体へのお問い合わせ / Contact to GroovyMedia Inc.
-                      </label>
-                    </div>
-                    {errors.type && touched.type ? (
-                      <p className="mt-2 text-sm text-red-600">{errors.type}</p>
-                    ) : null}
+                {!app && (
+                  <>
                     <div className="col-span-full">
                       <label
-                        htmlFor="content"
+                        htmlFor=""
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        お問い合わせ内容 / Contact detail
+                        お問い合わせ種別 / Inquiry type
                       </label>
-                      <div className="mt-2">
-                        <Field
-                          id="content"
-                          name="content"
-                          as="textarea"
-                          rows="3"
-                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
+                      <div className="mt-6 space-y-6">
+                        <div className="flex items-center gap-x-3">
+                          <Field
+                            id="type-apps"
+                            name="type"
+                            type="radio"
+                            value="Shopifyアプリケーションの不具合・質問 / Shopify app"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          />
+                          <label
+                            htmlFor="type-apps"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Shopifyアプリケーションの不具合・質問 / Shopify app
+                            support
+                          </label>
+                        </div>
+                        <div className="flex items-center gap-x-3">
+                          <Field
+                            id="type-shopify"
+                            name="type"
+                            type="radio"
+                            value="Shopifyテーマ導入、コンサルティング、開発案件へのお問い合わせ / Shopify theme development"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          />
+                          <label
+                            htmlFor="type-shopify"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            Shopifyテーマ導入、コンサルティング、開発案件へのお問い合わせ
+                            / Shopify theme development
+                          </label>
+                        </div>
+                        <div className="flex items-center gap-x-3">
+                          <Field
+                            id="type-development"
+                            name="type"
+                            type="radio"
+                            value="その他コンサルティング、開発案件へのお問い合わせ / Other"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          />
+                          <label
+                            htmlFor="type-development"
+                            className="block text-sm font-medium leading-6 text-gray-900"
+                          >
+                            その他コンサルティング、開発案件へのお問い合わせ /
+                            Other consulting and development inquiries
+                          </label>
+                        </div>
                       </div>
-                      <p className="mt-3 text-sm leading-6 text-gray-600">
-                        お問い合わせ内容をご入力ください。アプリケーションの不具合の際にはストアの管理画面のURLを含め、できるだけ詳細にご記載ください。
-                      </p>
-                      {errors.content && touched.content ? (
-                        <p className="mt-2 text-sm text-red-600">
-                          {errors.content}
-                        </p>
-                      ) : null}
                     </div>
+                  </>
+                )}
+
+                <div className="col-span-full">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="content"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      お問い合わせ内容 / Contact detail
+                    </label>
+                    <div className="mt-2">
+                      <Field
+                        id="content"
+                        name="content"
+                        as="textarea"
+                        rows="3"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-gray-600">
+                      お問い合わせ内容をご入力ください。アプリケーションの不具合の際にはストアの管理画面のURLを含め、できるだけ詳細にご記載ください。
+                    </p>
+                    {errors.content && touched.content ? (
+                      <p className="mt-2 text-sm text-red-600">
+                        {errors.content}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               </div>

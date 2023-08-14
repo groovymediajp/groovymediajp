@@ -14,7 +14,48 @@ export async function createTicket(params) {
     remoteUri: "https://groovymedia.zendesk.com/api/v2",
   });
 
-  const content = `種別: ${params.type}\n会社名: ${params.company}\nお名前: ${params.name}\nメールアドレス: ${params.email}\n電話番号: ${params.phone}\n内容:\n ${params.content}`;
+  const typetext = params.type || params.appinquirytype;
+
+  const metadata = { ...params };
+  delete metadata.type;
+  delete metadata.appinquirytype;
+  delete metadata.company;
+  delete metadata.name;
+  delete metadata.email;
+  delete metadata.phone;
+  delete metadata.content;
+
+  const customfields = [];
+  if (params.appinquirytype) {
+    customfields.push({
+      id: 15193879959449,
+      value: params.appinquirytype,
+    });
+  }
+  if (params.appname) {
+    customfields.push({
+      id: 14568530336281,
+      value: params.appname,
+    });
+  }
+  if (params.shopifyadmin) {
+    customfields.push({
+      id: 14568619690009,
+      value: params.shopifyadmin,
+    });
+  }
+
+  const metadatatext = Object.keys(metadata)
+    .map((key) => {
+      return `${key}: ${metadata[key]}`;
+    })
+    .join("\n");
+
+  const content = `種別: ${typetext}\n会社名: ${params.company}\nお名前: ${
+    params.name
+  }\nメールアドレス: ${params.email}\n電話番号: ${params.phone}\n${
+    metadatatext ? metadatatext + "\n" : ""
+  }内容:\n ${params.content}`;
 
   var ticket = {
     ticket: {
@@ -22,10 +63,12 @@ export async function createTicket(params) {
         name: params.company + " " + params.name,
         email: params.email,
       },
-      subject: "[" + params.type + "] " + params.company + " " + params.name,
+      subject: "[" + typetext + "] " + params.company + " " + params.name,
       comment: {
         body: content,
       },
+      metadata,
+      custom_fields: customfields,
     },
   };
 

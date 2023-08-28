@@ -450,7 +450,8 @@ export default function ContactForm({ app }) {
                 of personal information by the entrusted party. The Company
                 accepts requests for disclosure, etc. (Requests for Disclosure,
                 etc.). Requests for Disclosure, etc. are accepted at the
-                "Personal Information Complaints and Consultation Desk" below.
+                &quot;Personal Information Complaints and Consultation
+                Desk&quot; below.
               </li>
               <li>
                 The provision of personal information is voluntary. However,
@@ -489,8 +490,8 @@ export default function ContactForm({ app }) {
 
           <p className="text-sm">
             上記を確認の上、ご同意いただける方は「同意して送信」ボタンを押してください。
-            / If you agree to the above, please click the "Agree and Submit"
-            button.
+            / If you agree to the above, please click the &quot;Agree and
+            Submit&quot; button.
           </p>
 
           {!isValid && (

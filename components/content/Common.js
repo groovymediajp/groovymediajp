@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// import { dateFormat } from "../../modules/filters";
+// import { dateFormat } from "../../modules/funcs";
 
 export default function Common({ post }) {
   return (

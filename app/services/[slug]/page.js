@@ -8,6 +8,8 @@ import { services } from "../../../content/contents";
 
 import Common from "../../../components/content/Common";
 
+export const runtime = "edge";
+
 export default async function ServiceDetail({ params }) {
   const data = await getData(params.slug);
   return (

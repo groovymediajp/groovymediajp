@@ -7,6 +7,8 @@ import { products } from "../../../content/contents";
 import Common from "../../../components/content/Common";
 import { readContentFile } from "../../../libs/filters";
 
+export const runtime = "edge";
+
 export default async function ProducDetail({ params }) {
   const data = await getData(params.slug);
   return (

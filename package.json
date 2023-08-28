@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+   "browser": {
+     "crypto": false,
+     "stream": false
+  },
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",

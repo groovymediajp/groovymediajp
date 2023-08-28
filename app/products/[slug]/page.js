@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import fs from 'fs';
+import React from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import fs from "fs";
 
-import { products } from '../../../content/contents';
-import Common from '../../../components/content/Common';
-import { readContentFile } from '../../../libs/filters';
+import { products } from "../../../content/contents";
+import Common from "../../../components/content/Common";
+import { readContentFile } from "../../../libs/filters";
+
+export const runtime = "edge";
 
 export default async function ProducDetail({ params }) {
   const data = await getData(params.slug);
@@ -16,7 +18,7 @@ export default async function ProducDetail({ params }) {
   );
 }
 
-export async function generateMetadata({params}) {
+export async function generateMetadata({ params }) {
   const data = await getData(params.slug);
   return {
     title: `${data.post.title} - 株式会社グルーヴィーメディア`,
@@ -24,7 +26,9 @@ export async function generateMetadata({params}) {
 }
 
 export async function generateStaticParams() {
-  return products.filter(product => !product.remote).map((app) => ({ slug: app.slug }))
+  return products
+    .filter((product) => !product.remote)
+    .map((app) => ({ slug: app.slug }));
 }
 
 export async function getData(id) {

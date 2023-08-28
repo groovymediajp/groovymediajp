@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 const zendesk = require("node-zendesk");
 
 function handleError(err) {

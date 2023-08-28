@@ -2536,10 +2536,10 @@ node-releases@^2.0.13:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.13.tgz#d5ed1627c23e3461e819b02e57b75e4899b1c81d"
   integrity sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==
 
-node-zendesk@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/node-zendesk/-/node-zendesk-2.2.0.tgz#bb352f08ab82d8ca862cfeba6c0fca67a9001fb3"
-  integrity sha512-A1BCHrE2JAfKmFFI1j6A6cLd9MH5prsz29DsiMigaMbHP0M8CuLqwl3PhIABwY1iQyApqRlMXy8z+d6ITUJclA==
+node-zendesk@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/node-zendesk/-/node-zendesk-3.0.3.tgz#7db73a67c96e4f9d73d31660d745d73ac7cec604"
+  integrity sha512-vxLA4GEa04FBw3S035BgoEATUcmZFMlFSwufUX/X/GipB2TqVJqMymSD68vQhoD4kAI0UunNoz0gcBVpNB6VjA==
   dependencies:
     async "3.2.x"
     nconf "0.12.0"

@@ -8,9 +8,19 @@
     "start": "next start",
     "lint": "next lint"
   },
-   "browser": {
-     "crypto": false,
-     "stream": false
+  "browser": {
+    "crypto": false,
+    "stream": false,
+    "fs": false,
+    "path": false,
+    "http": false,
+    "https": false,
+    "tty": false,
+    "zlib": false,
+    "child_process": false,
+    "os": false,
+    "net": false,
+    "tls": false
   },
   "dependencies": {
     "@headlessui/react": "^1.7.16",
@@ -25,7 +35,7 @@
     "gray-matter": "^4.0.3",
     "microcms-js-sdk": "^2.5.0",
     "next": "13.4.13",
-    "node-zendesk": "^3.0.3",
+    "node-zendesk": "2.0.2",
     "postcss": "8.4.27",
     "raw-loader": "^4.0.2",
     "react": "18.2.0",

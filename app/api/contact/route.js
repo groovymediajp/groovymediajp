@@ -2,14 +2,13 @@ import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 
-const zendesk = require("node-zendesk");
-
 function handleError(err) {
   console.log(err);
   process.exit(-1);
 }
 
 export async function createTicket(params) {
+  const zendesk = require("node-zendesk");
   const client = zendesk.createClient({
     username: "sysadmin@groovymedia.jp",
     token: process.env.ZENDESK_API_KEY,

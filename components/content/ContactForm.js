@@ -83,6 +83,7 @@ export default function ContactForm({ app }) {
           ? `システム ユーザID: ${searchParams.get("user_id")}\n\n`
           : "",
         appname: searchParams.get("appname") || "",
+        phone: searchParams.get("phone") || "",
         shopifyadmin: searchParams.get("shopifyadmin") || "",
       }}
       validate={validate}

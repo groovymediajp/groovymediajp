@@ -1,36 +1,46 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-import { products, services } from '../../content/contents';
+import { products, services } from "content/contents";
 
 export default function Footer() {
   return (
-    <footer className='bg-gray-800' aria-labelledby='footerHeading'>
-      <h2 id='footerHeading' className='sr-only'>
+    <footer className="bg-gray-800" aria-labelledby="footerHeading">
+      <h2 id="footerHeading" className="sr-only">
         Footer
       </h2>
-      <div className='max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8'>
-        <div className='pb-8 xl:grid xl:grid-cols-5 xl:gap-8'>
-          <div className='grid grid-cols-2 gap-8 xl:col-span-4'>
-            <div className='md:grid md:grid-cols-2 md:gap-8'>
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
+          <div className="grid grid-cols-2 gap-8 xl:col-span-4">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>Products</h3>
-                <ul className='mt-4 space-y-4'>
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  Products
+                </h3>
+                <ul className="mt-4 space-y-4">
                   {products.map((app) => (
                     <li key={app.slug}>
-                      <Link href={`/products/${app.slug}`} className='text-base text-gray-300 hover:text-white'>
+                      <Link
+                        href={`/products/${app.slug}`}
+                        className="text-base text-gray-300 hover:text-white"
+                      >
                         {app.name}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className='mt-12 md:mt-0'>
-                <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>Services</h3>
-                <ul className='mt-4 space-y-4'>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  Services
+                </h3>
+                <ul className="mt-4 space-y-4">
                   {services.map((service) => (
                     <li key={service.slug}>
-                      <Link href={`/services/${service.slug}`} className='text-base text-gray-300 hover:text-white'>
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="text-base text-gray-300 hover:text-white"
+                      >
                         {service.name}
                       </Link>
                     </li>
@@ -38,29 +48,43 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className='md:grid md:grid-cols-2 md:gap-8'>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className='text-sm font-semibold text-gray-400 tracking-wider uppercase'>Company</h3>
-                <ul className='mt-4 space-y-4'>
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                  Company
+                </h3>
+                <ul className="mt-4 space-y-4">
                   <li>
-                    <Link href='/about' className='text-base text-gray-300 hover:text-white'>
+                    <Link
+                      href="/about"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
                       会社概要
                     </Link>
                   </li>
 
-                  <li>
-                    <Link href='/articles/' className='text-base text-gray-300 hover:text-white'>
+                  {/* <li>
+                    <Link
+                      href="/articles/"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
                       ブログ記事
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li>
-                    <Link href='/contact' className='text-base text-gray-300 hover:text-white'>
+                    <Link
+                      href="/contact"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
                       お問い合わせ
                     </Link>
                   </li>
                   <li>
-                    <Link href='/privacy.html' className='text-base text-gray-300 hover:text-white'>
+                    <Link
+                      href="/privacy.html"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
                       プライバシーポリシー
                     </Link>
                   </li>
@@ -161,8 +185,8 @@ export default function Footer() {
             </div>
           </form>
         </div> */}
-        <div className='mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between'>
-          <div className='flex space-x-6 md:order-2'>
+        <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+          <div className="flex space-x-6 md:order-2">
             {/* <a href="#" className="text-gray-400 hover:text-gray-300">
               <span className="sr-only">Facebook</span>
               <svg
@@ -239,7 +263,7 @@ export default function Footer() {
               </svg>
             </a> */}
           </div>
-          <p className='mt-8 text-base text-gray-400 md:mt-0 md:order-1'>
+          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
             &copy; 2020 GroovyMedia, Inc. All rights reserved.
           </p>
         </div>

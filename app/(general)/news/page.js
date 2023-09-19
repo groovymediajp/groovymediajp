@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import dayjs from "dayjs";
-import { client } from "../../libs/client";
+import { client } from "libs/client";
 
-// import { importPosts } from '../../libs/filters';
+// import { importPosts } from 'libs/filters';
 
-import HomeNews from "../../components/home/HomeNews";
+import HomeNews from "components/home/HomeNews";
 
 export const revalidate = 1;
 

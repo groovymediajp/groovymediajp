@@ -2,8 +2,8 @@
 import PropTypes from "prop-types";
 // import Link from 'next/link';
 
-// import GroovyMediaIcon from '../layout/GroovyMediaIcon';
-// import { dateFormat } from '../../modules/funcs';
+// import GroovyMediaIcon from 'layout/GroovyMediaIcon';
+// import { dateFormat } from 'modules/funcs';
 
 export default function HomePosts({ posts }) {
   if (!posts || posts.length <= 0) {

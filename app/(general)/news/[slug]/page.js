@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import { client } from "../../../libs/client";
+import { client } from "libs/client";
 
-import Post from "../../../components/article/Post";
+import Post from "components/article/Post";
 
 export const revalidate = 1;
 

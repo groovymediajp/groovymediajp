@@ -2,15 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import fs from "fs";
-import { readContentFile } from "../../../libs/filters";
 
-import { services } from "../../../content/contents";
-
-import Common from "../../../components/content/Common";
+import { products } from "content/contents";
+import Common from "components/content/Common";
+import { readContentFile } from "libs/filters";
 
 // export const runtime = "edge";
 
-export default async function ServiceDetail({ params }) {
+export default async function ProducDetail({ params }) {
   const data = await getData(params.slug);
   return (
     <>
@@ -26,13 +25,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
+export async function generateStaticParams() {
+  return products
+    .filter((product) => !product.remote)
+    .map((app) => ({ slug: app.slug }));
+}
+
 export async function getData(id) {
-  const post = await readContentFile(fs, `services/${id}`);
+  const post = await readContentFile(fs, `products/${id}`);
   return {
     post: post,
   };
-}
-
-export async function generateStaticParams() {
-  return services.map((app) => ({ slug: app.slug }));
 }

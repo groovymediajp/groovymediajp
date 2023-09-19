@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-import GroovyMediaIcon from "../layout/GroovyMediaIcon";
-import { dateFormat } from "../../libs/funcs";
+import GroovyMediaIcon from "components/layout/GroovyMediaIcon";
+import { dateFormat } from "libs/funcs";
 
 export default function HomeNews({ posts, singlecolumn }) {
   return (

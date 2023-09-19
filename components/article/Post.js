@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { dateFormat } from "../../libs/funcs";
+import { dateFormat } from "libs/funcs";
 /*
  <!--
   This example requires Tailwind CSS v2.0+

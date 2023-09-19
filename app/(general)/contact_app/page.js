@@ -1,7 +1,7 @@
 import React from "react";
 
-import Common from "../../components/content/Common";
-import ContactForm from "@/components/content/ContactForm";
+import Common from "components/content/Common";
+import ContactForm from "components/content/ContactForm";
 
 export const metadata = {
   title: "アプリケーションお問い合わせ - 株式会社グルーヴィーメディア",

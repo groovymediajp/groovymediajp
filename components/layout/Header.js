@@ -195,6 +195,12 @@ export default function Example() {
             お知らせ
           </a>
           <a
+            href="/vision"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            ヴィジョン
+          </a>
+          <a
             href="/about"
             className="text-sm font-semibold leading-6 text-gray-900"
           >

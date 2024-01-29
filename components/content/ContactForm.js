@@ -54,6 +54,10 @@ export default function ContactForm({ app }) {
       value: "かんたん商品カスタムオーダー",
       label: "かんたん商品カスタムオーダー",
     },
+    {
+      value: "会計freee連動アプリ_COLORME版",
+      label: "会計freee連動アプリ_COLORME版",
+    },
     { value: "その他のアプリ・サポート", label: "その他のアプリ・サポート" },
   ];
   const inquiryTypes = [
@@ -123,7 +127,7 @@ export default function ContactForm({ app }) {
         scrollTo(0, 0);
       }}
     >
-      {({ errors, touched, isValid }) => (
+      {({ errors, touched, isValid, values }) => (
         <Form>
           <div className="space-y-12">
             <div className=" pb-2">
@@ -204,31 +208,34 @@ export default function ContactForm({ app }) {
                       ) : null}
                     </div>
 
-                    <div className="sm:col-span-4">
-                      <label
-                        htmlFor="shopifyadmin"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Shopify管理画面URL / Shopify Admin URL
-                      </label>
-                      <div className="mt-2">
-                        <Field
-                          id="shopifyadmin"
-                          name="shopifyadmin"
-                          type="shopifyadmin"
-                          className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900pe shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        />
-                      </div>
-                      <p className="mt-3 text-sm leading-6 text-gray-600">
-                        管理画面のURLをコピーアンドペーストして入れてください。(*.myshopify.com
-                        もしくは admin.shopify.com/***/ のようなURLです )
-                      </p>
-                      {errors.shopifyadmin && touched.shopifyadmin ? (
-                        <p className="mt-2 text-sm text-red-600">
-                          {errors.nashopifyadminme}
+                    {values.appname !== "会計freee連動アプリ_COLORME版" && (
+                      <div className="sm:col-span-4">
+                        <label
+                          htmlFor="shopifyadmin"
+                          className="block text-sm font-medium leading-6 text-gray-900"
+                        >
+                          Shopify管理画面URL / Shopify Admin URL
+                        </label>
+                        <div className="mt-2">
+                          <Field
+                            id="shopifyadmin"
+                            name="shopifyadmin"
+                            type="shopifyadmin"
+                            className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900pe shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                          />
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-gray-600">
+                          管理画面のURLをコピーアンドペーストして入れてください。(*.myshopify.com
+                          もしくは admin.shopify.com/***/ のようなURLです )
                         </p>
-                      ) : null}
-                    </div>
+                        {errors.shopifyadmin && touched.shopifyadmin ? (
+                          <p className="mt-2 text-sm text-red-600">
+                            {errors.nashopifyadminme}
+                          </p>
+                        ) : null}
+                      </div>
+                    )}
+
                     <div className="sm:col-span-4">
                       <label
                         htmlFor="appinquirytype"

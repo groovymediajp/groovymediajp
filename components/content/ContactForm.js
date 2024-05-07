@@ -43,8 +43,8 @@ export default function ContactForm({ app }) {
     { value: "会計freee連動アプリ", label: "会計freee連動アプリ" },
     { value: "かんたんサブスク", label: "かんたんサブスク" },
     {
-      value: "かんたんMA - Obake",
-      label: "かんたんMA - Obake",
+      value: "StoreCRM",
+      label: "StoreCRM",
     },
     {
       value: "日本対応CSV/Excelダウンロード",

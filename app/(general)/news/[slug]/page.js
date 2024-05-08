@@ -6,7 +6,7 @@ import Post from "components/article/Post";
 
 export const revalidate = 1;
 
-// export const runtime = "edge";
+export const runtime = "edge";
 
 export default async function NewsDetail({ params }) {
   const data = await getData(params.slug);

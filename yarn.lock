@@ -2653,6 +2653,8 @@ __metadata:
     node-zendesk: "npm:2.0.2"
     postcss: "npm:8.4.27"
     prop-types: "npm:^15.8.1"
+    punycode: "npm:^2.3.1"
+    querystring: "npm:^0.2.1"
     raw-loader: "npm:^4.0.2"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
@@ -4813,7 +4815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"punycode@npm:^2.1.0, punycode@npm:^2.1.1":
+"punycode@npm:^2.1.0, punycode@npm:^2.1.1, punycode@npm:^2.3.1":
   version: 2.3.1
   resolution: "punycode@npm:2.3.1"
   checksum: 10c0/14f76a8206bc3464f794fb2e3d3cc665ae416c01893ad7a02b23766eb07159144ee612ad67af5e84fa4479ccfe67678c4feb126b0485651b302babf66f04f9e9
@@ -4836,7 +4838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"querystring@npm:0.2.x":
+"querystring@npm:0.2.x, querystring@npm:^0.2.1":
   version: 0.2.1
   resolution: "querystring@npm:0.2.1"
   checksum: 10c0/6841b32bec4f16ffe7f5b5e4373b47ad451f079cde3a7f45e63e550f0ecfd8f8189ef81fb50079413b3fc1c59b06146e4c98192cb74ed7981aca72090466cd94

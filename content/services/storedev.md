@@ -1,9 +1,3 @@
-import React from "react";
-import { readContentFile } from "libs/filters";
-
-import Common from "components/content/Common";
-
-const content = `
 ---
 title: Shopifyストア 開設・運営支援
 date: 2023-06-08T04:00:00.000Z
@@ -20,27 +14,3 @@ Shopify ストアをただ開設すること自体は非常に容易です。一
 - カスタムオーダー/丈つめなどの購入時オプション導入
 - 複数サイトの在庫数連動
 - 複数仕入元の商品掲載＋自動発送対応
-`;
-
-export default async function ServiceDetail({ params }) {
-  const data = await getData();
-  return (
-    <>
-      <Common post={data.post} />
-    </>
-  );
-}
-
-export async function generateMetadata({ params }) {
-  const data = await getData();
-  return {
-    title: `${data.post.title} - 株式会社グルーヴィーメディア`,
-  };
-}
-
-export async function getData() {
-  const post = await readContentFile(content);
-  return {
-    post: post,
-  };
-}

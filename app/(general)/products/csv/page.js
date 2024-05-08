@@ -1,10 +1,7 @@
 import React from "react";
 
-import { products } from "content/contents";
 import Common from "components/content/Common";
 import { convertContent } from "libs/filters";
-
-export const runtime = "edge";
 
 const content = `
 ---
@@ -36,7 +33,7 @@ CSVダウンロードは、Shopifyの注文データや商品情報をExcelやCS
 `;
 
 export default async function ProducDetail({ params }) {
-  const data = await getData(params.slug);
+  const data = await getData();
   return (
     <>
       <Common post={data.post} />
@@ -45,19 +42,13 @@ export default async function ProducDetail({ params }) {
 }
 
 export async function generateMetadata({ params }) {
-  const data = await getData(params.slug);
+  const data = await getData();
   return {
     title: `${data.post.title} - 株式会社グルーヴィーメディア`,
   };
 }
 
-export async function generateStaticParams() {
-  return products
-    .filter((product) => !product.remote)
-    .map((app) => ({ slug: app.slug }));
-}
-
-export async function getData(id) {
+export async function getData() {
   const post = await convertContent(content);
   return {
     post: post,

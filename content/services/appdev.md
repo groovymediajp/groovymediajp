@@ -1,9 +1,3 @@
-import React from "react";
-import { readContentFile } from "libs/filters";
-
-import Common from "components/content/Common";
-
-const content = `
 ---
 title: Shopifyアプリ カスタム開発
 date: 2023-06-08T04:00:00.000Z
@@ -18,27 +12,3 @@ Shopify で公開済みのアプリから非公開のアプリまで公開、開
 - 受発注フローとのつなぎ込み/納品書自動発行
 
 既製アプリの開発経験のあるチームに相談したい方はぜひリモートでの１時間程度のご相談をご検討ください。
-`;
-
-export default async function ServiceDetail({ params }) {
-  const data = await getData();
-  return (
-    <>
-      <Common post={data.post} />
-    </>
-  );
-}
-
-export async function generateMetadata({ params }) {
-  const data = await getData();
-  return {
-    title: `${data.post.title} - 株式会社グルーヴィーメディア`,
-  };
-}
-
-export async function getData() {
-  const post = await readContentFile(content);
-  return {
-    post: post,
-  };
-}

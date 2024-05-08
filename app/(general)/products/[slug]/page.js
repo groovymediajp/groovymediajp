@@ -1,7 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
 
 import { products } from "content/contents";
 import Common from "components/content/Common";
@@ -32,7 +29,7 @@ export async function generateStaticParams() {
 }
 
 export async function getData(id) {
-  const post = await readContentFile(fs, `products/${id}`);
+  const post = await readContentFile(`products/${id}`);
   return {
     post: post,
   };

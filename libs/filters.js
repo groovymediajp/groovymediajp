@@ -7,7 +7,7 @@ import { dateFormat } from "./funcs";
 
 const EXTENSION = ".md";
 
-export async function readContentFile(fs, slug) {
+export async function readContentFile(slug) {
   const DIR = path.join(process.cwd(), "content");
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), "utf8");
   const matterResult = matter(raw);

@@ -1,7 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import fs from "fs";
 import { readContentFile } from "libs/filters";
 
 import { services } from "content/contents";
@@ -27,7 +24,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function getData(id) {
-  const post = await readContentFile(fs, `services/${id}`);
+  const post = await readContentFile(`services/${id}`);
   return {
     post: post,
   };

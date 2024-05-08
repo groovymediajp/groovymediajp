@@ -1,5 +1,5 @@
 import React from "react";
-import { readContentFile } from "libs/filters";
+import { convertContent } from "libs/filters";
 
 import Common from "components/content/Common";
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
 }
 
 export async function getData() {
-  const post = await readContentFile(content);
+  const post = await convertContent(content);
   return {
     post: post,
   };

@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { convertContent } from "libs/filters";
+import { content } from "libs/static";
 
 export default async function Privacy() {
   const post = await getPostData("privacy");
@@ -21,7 +22,7 @@ export default async function Privacy() {
   );
 }
 
-export async function getPostData(id) {
-  const fileContents = await convertContent(`static/${id}`);
+export async function getPostData() {
+  const fileContents = await convertContent(content);
   return fileContents;
 }

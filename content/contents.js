@@ -7,6 +7,15 @@ import {
 
 export const products = [
   {
+    name: "StoreCRM（ストアCRM）",
+    description:
+      "ShopifyのCRM/MAアプリです。LTVの最大化などに貢献する自動のマーケティング施策の設定や、メルマガ配信などができます。",
+    href: "https://storecrm.com/",
+    image: "/assets/apps/storecrm.png",
+    slug: "storecrm",
+    remote: true,
+  },
+  {
     name: "かんたんサブスク",
     description:
       "Shopifyでサブスクを構築可能にします。自動のテーマインストール〜サブスク構築支援も含まれております。",
@@ -67,7 +76,7 @@ export const services = [
 ];
 export const callsToAction = [
   {
-    name: "Shopifyストアで見る",
+    name: "shopify app storeで見る",
     href: "https://apps.shopify.com/partners/groovymedia-inc1",
     icon: ShoppingCartIcon,
   },

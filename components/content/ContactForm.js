@@ -11,6 +11,7 @@ export default function ContactForm({ app }) {
   console.log("app", app);
   const [sending, setSending] = React.useState(false);
   const [sent, setSent] = React.useState(false);
+  const [ticketId, setTicketId] = React.useState(null);
   const validate = (values) => {
     const errors = {};
     if (!values.company) {
@@ -74,7 +75,11 @@ export default function ContactForm({ app }) {
       <div className="mt-6">
         <p className="text-lg font-semibold text-gray-900">
           {" "}
-          お問い合わせありがとうございました。{" "}
+          お問い合わせありがとうございました。
+          <br />
+          チケットID: {ticketId}
+          <br />
+          ※お問い合わせの際にはチケットIDをご連絡いただけるとスムーズとなります。
         </p>
       </div>
     );
@@ -112,6 +117,8 @@ export default function ContactForm({ app }) {
           if (response.status !== 200) {
             throw new Error(await response.text());
           }
+          const data = await response.json();
+          setTicketId(data.id);
         } catch (error) {
           console.error(error);
           alert(

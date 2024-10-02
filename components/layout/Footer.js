@@ -89,6 +89,15 @@ export default function Footer() {
                     </Link>
                   </li>
 
+                  <li>
+                    <a
+                      href="/keiji"
+                      className="text-base text-gray-300 hover:text-white"
+                    >
+                      その他掲示内容
+                    </a>
+                  </li>
+
                   {/* <li>
                     <a
                       href="#"
@@ -264,7 +273,7 @@ export default function Footer() {
             </a> */}
           </div>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-            &copy; 2020 GroovyMedia, Inc. All rights reserved.
+            &copy; 2020- GroovyMedia, Inc. All rights reserved.
           </p>
         </div>
       </div>

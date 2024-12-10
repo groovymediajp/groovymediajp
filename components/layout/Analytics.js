@@ -1,29 +1,45 @@
-"use client"
+"use client";
 
-import { usePathname, useSearchParams } from "next/navigation"
-import Script from "next/script"
-import { useEffect } from "react"
+import { usePathname, useSearchParams } from "next/navigation";
+import Script from "next/script";
+import { useEffect } from "react";
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // || "G-BHZQ7RMNJN";
+
+const pageview = (path) => {
+  if (!GA_MEASUREMENT_ID) return;
+  window.gtag("config", GA_MEASUREMENT_ID, {
+    page_path: path,
+  });
+};
 
 export default function Analytics() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (pathname) {
-      pageview(pathname)
+      pageview(pathname);
     }
-  }, [pathname, searchParams])
+  }, [pathname, searchParams]);
 
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") {
-    return null
+  // if (process.env.NEXT_PUBLIC_VERCEL_ENV !== "production") {
+  //   return null
+  // }
+
+  if (!GA_MEASUREMENT_ID) {
+    return null;
   }
 
   return (
     <>
-      <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-BHZQ7RMNJN' />
       <Script
-        id='gtag-init'
-        strategy='afterInteractive'
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
         window.dataLayer = window.dataLayer || [];
@@ -35,5 +51,5 @@ export default function Analytics() {
         }}
       />
     </>
-  )
+  );
 }

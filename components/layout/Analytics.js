@@ -5,7 +5,8 @@ import Script from "next/script";
 import { useEffect } from "react";
 
 const pageview = (path) => {
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // || "G-BHZQ7RMNJN";
+  const GA_MEASUREMENT_ID =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-BHZQ7RMNJN";
   if (!GA_MEASUREMENT_ID) return;
   window.gtag("config", GA_MEASUREMENT_ID, {
     page_path: path,
@@ -16,7 +17,8 @@ export default function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID; // || "G-BHZQ7RMNJN";
+  const GA_MEASUREMENT_ID =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-BHZQ7RMNJN";
 
   useEffect(() => {
     if (pathname) {

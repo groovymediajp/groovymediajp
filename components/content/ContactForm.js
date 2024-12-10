@@ -36,6 +36,9 @@ export default function ContactForm({ app }) {
       errors.content =
         "お問い合わせ内容は必須です / Contact detail is required";
     }
+    if (!values.phone) {
+      errors.phone = "電話番号は必須です / Phone number is required";
+    }
 
     return errors;
   };

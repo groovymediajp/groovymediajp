@@ -51,7 +51,7 @@ export default function Home() {
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   〒107‐0052
                   <br />
-                  東京都港区赤坂6-2-5 方栄ビル3F
+                  東京都港区赤坂赤坂６丁目４番１５号 シティマンション赤坂2F
                 </dd>
               </div>
               <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

@@ -443,7 +443,8 @@ export default function ContactForm({ app }) {
             <br />
             苦情相談窓口責任者　菱沼　大輝
             <br />
-            〒107-0052　東京都港区赤坂赤坂６丁目２番５号 方栄ビル3F
+            〒107-0052　東京都港区赤坂赤坂６丁目４番１５号
+            シティマンション赤坂2F
             <br />
             TEL：03-4530-3079　　メール：privacy@groovymedia.jp
             <br />
@@ -501,7 +502,7 @@ export default function ContactForm({ app }) {
             <br />
             Complaints and Inquiries Desk Manager: Daiki Hishinuma
             <br />
-            Foei Building 3F, 6-2-5 Akasaka Akasaka, Minato-ku, Tokyo 107-0052,
+            City manshion Akasaka 2F, 6-4-15 Akasaka, Minato-ku, Tokyo 107-0052,
             Japan
             <br />
             TEL: 03-4530-3079 E-mail: privacy@groovymedia.jp

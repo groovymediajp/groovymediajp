@@ -1,5 +1,6 @@
 import "../globals.css";
 import { Inter } from "next/font/google";
+import { Suspense } from "react";
 
 import Header from "components/layout/Header";
 import Footer from "components/layout/Footer";
@@ -16,7 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <head>
-        <Analytics />
+        <Suspense>
+          <Analytics />
+        </Suspense>
       </head>
       <body className={inter.className}>
         <Header />

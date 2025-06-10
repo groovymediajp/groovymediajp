@@ -1,3 +1,51 @@
+# GroovyMedia プロジェクト
+
+このリポジトリは、Next.js をベースにした Web サイト/サービスのフロントエンドプロジェクトです。
+
+## ディレクトリ構成
+
+```
+├── app/           # ルーティング・グローバルCSS・APIエンドポイント
+├── components/    # UIコンポーネント群
+│   ├── article/   # 記事表示用コンポーネント
+│   ├── content/   # 各種フォームや共通部品
+│   ├── home/      # トップページ用コンポーネント
+│   └── layout/    # レイアウト・ヘッダー・フッター等
+├── content/       # サイト内コンテンツ（md, js）
+│   ├── products/  # プロダクト紹介
+│   ├── services/  # サービス紹介
+│   └── static/    # 静的ページ（プライバシーポリシー等）
+├── libs/          # 各種ユーティリティ・外部連携
+├── public/        # 静的ファイル（画像・アイコン等）
+├── .next/         # Next.jsビルド成果物
+├── .yarn/         # Yarn関連
+├── ...            # その他設定ファイル
+```
+
+## 開発手順
+
+1. 依存パッケージのインストール
+   ```bash
+   yarn install
+   ```
+2. 開発サーバー起動
+   ```bash
+   yarn dev
+   ```
+3. http://localhost:3000 で動作確認
+
+## 主要依存
+
+- Next.js
+- React
+- Tailwind CSS
+- その他は package.json を参照
+
+## コントリビュート
+
+- プルリクエスト前に `yarn lint` で Lint チェックを行ってください。
+- コード規約や詳細な開発ルールは `docs/` ディレクトリを参照してください（今後整備予定）。
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

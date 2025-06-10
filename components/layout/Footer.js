@@ -20,12 +20,24 @@ export default function Footer() {
                 <ul className="mt-4 space-y-4">
                   {products.map((app) => (
                     <li key={app.slug}>
-                      <Link
-                        href={`/products/${app.slug}`}
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        {app.name}
-                      </Link>
+                      {app.remote ? (
+                        <a
+                          href={app.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base text-gray-300 hover:text-white"
+                        >
+                          {app.name}
+                        </a>
+                      ) : (
+                        <Link
+                          href={app.href}
+                          target="_self"
+                          className="text-base text-gray-300 hover:text-white"
+                        >
+                          {app.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

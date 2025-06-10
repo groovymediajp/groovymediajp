@@ -84,14 +84,14 @@ export default function Example() {
                       </div>
                       <div className="flex-auto">
                         <Popover.Button
-                          as={item.href.match("http") ? "a" : Link}
+                          as={item.remote ? "a" : Link}
                           href={item.href}
-                          target={item.href.match("http") ? "_blank" : null}
-                          rel="noreferrer"
+                          target={item.remote ? "_blank" : "_self"}
+                          rel={item.remote ? "noopener noreferrer" : undefined}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
-                          {item.href.match("http") && (
+                          {item.remote && (
                             <ArrowTopRightOnSquareIcon className="inline h-4 w-4 text-gray-600 group-hover:text-indigo-600" />
                           )}
                           <span className="absolute inset-0" />
@@ -105,8 +105,9 @@ export default function Example() {
                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
                   {callsToAction.map((item) => (
                     <Popover.Button
-                      as={item.href.match("http") ? "a" : Link}
-                      target={item.href.match("http") ? "_blank" : null}
+                      as={item.remote ? "a" : Link}
+                      target={item.remote ? "_blank" : "_self"}
+                      rel={item.remote ? "noopener noreferrer" : undefined}
                       key={item.name}
                       href={item.href}
                       className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
@@ -156,14 +157,14 @@ export default function Example() {
                       </div>
                       <div className="flex-auto">
                         <Popover.Button
-                          as={item.href.match("http") ? "a" : Link}
+                          as={item.remote ? "a" : Link}
                           href={item.href}
-                          target={item.href.match("http") ? "_blank" : null}
-                          rel="noreferrer"
+                          target={item.remote ? "_blank" : "_self"}
+                          rel={item.remote ? "noopener noreferrer" : undefined}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
-                          {item.href.match("http") && (
+                          {item.remote && (
                             <ArrowTopRightOnSquareIcon className="inline h-4 w-4 text-gray-600 group-hover:text-indigo-600" />
                           )}
                           <span className="absolute inset-0" />
@@ -262,9 +263,12 @@ export default function Example() {
                         {[...products, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as={item.href.match("http") ? "a" : Link}
+                            as={item.remote ? "a" : Link}
                             onClick={() => setMobileMenuOpen(false)}
-                            target={item.href.match("http") ? "_blank" : null}
+                            target={item.remote ? "_blank" : "_self"}
+                            rel={
+                              item.remote ? "noopener noreferrer" : undefined
+                            }
                             href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
@@ -292,9 +296,12 @@ export default function Example() {
                         {[...services /*, ...callsToAction*/].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as={item.href.match("http") ? "a" : Link}
+                            as={item.remote ? "a" : Link}
                             onClick={() => setMobileMenuOpen(false)}
-                            target={item.href.match("http") ? "_blank" : null}
+                            target={item.remote ? "_blank" : "_self"}
+                            rel={
+                              item.remote ? "noopener noreferrer" : undefined
+                            }
                             href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >

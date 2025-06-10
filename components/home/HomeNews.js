@@ -22,17 +22,17 @@ export default function HomeNews({ posts, singlecolumn }) {
           }
         >
           {posts.map((post) => (
-            <div key={post.slug} className={singlecolumn ? "mb-6 pb-6 " : ""}>
+            <div key={post.id} className={singlecolumn ? "mb-6 pb-6 " : ""}>
               <div>
                 {post.tags &&
-                  post.tags.split(",").map((tag) => {
+                  post.tags.split(",").map((tag) => (
                     <span
                       key={tag}
                       className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800"
                     >
                       {tag}
-                    </span>;
-                  })}
+                    </span>
+                  ))}
               </div>
               <Link href={`/news/${post.id}`} className="block mt-4">
                 <p className="text-xl font-semibold text-gray-900">

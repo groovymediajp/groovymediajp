@@ -6,10 +6,11 @@ import Post from "components/article/Post";
 
 export const revalidate = 1;
 
-export const runtime = "edge";
+// export const runtime = "edge";
 
 export default async function NewsDetail({ params }) {
-  const data = await getData(params.slug);
+  const { slug } = await params;
+  const data = await getData(slug);
   return (
     <>
       <Head>
@@ -21,7 +22,8 @@ export default async function NewsDetail({ params }) {
 }
 
 export async function generateMetadata({ params }) {
-  const post = await client.get({ endpoint: "news", contentId: params.slug });
+  const { slug } = await params;
+  const post = await client.get({ endpoint: "news", contentId: slug });
   return {
     title: `${post.title} - 株式会社グルーヴィーメディア`,
   };

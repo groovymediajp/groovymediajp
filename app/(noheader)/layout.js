@@ -11,7 +11,9 @@ export const metadata = {
 export default function NoLayout({ children }) {
   return (
     <html lang="ja">
-      <body className="bg-white pb-8">{children}</body>
+      <body className="pb-8" style="background: white !important;">
+        {children}
+      </body>
     </html>
   );
 }

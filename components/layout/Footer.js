@@ -110,13 +110,13 @@ export default function Footer() {
                     </a>
                   </li>
 
-                  {/* <li>
-                    <a
-                      href="#"
+                  <li>
+                    <Link
+                      href="/careers"
                       className="text-base text-gray-300 hover:text-white"
                     >
-                      求人情報
-                    </a>
+                      採用情報
+                    </Link>
                   </li>
 
                   <li>
@@ -135,7 +135,7 @@ export default function Footer() {
                     >
                       パートナー
                     </a>
-                  </li> */}
+                  </li>
                 </ul>
               </div>
               {/* <div className="mt-12 md:mt-0">

@@ -207,6 +207,12 @@ export default function Example() {
           >
             会社案内
           </a>
+          <a
+            href="/careers"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            採用情報
+          </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
@@ -325,6 +331,13 @@ export default function Example() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   会社概要
+                </Link>
+                <Link
+                  href="/careers"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  採用情報
                 </Link>
               </div>
               <div className="py-6">

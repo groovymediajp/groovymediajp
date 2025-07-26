@@ -121,7 +121,9 @@ export default function Footer() {
 
                   <li>
                     <a
-                      href="#"
+                      href="https://prtimes.jp/main/html/searchrlp/company_id/75559"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-base text-gray-300 hover:text-white"
                     >
                       プレス
@@ -130,7 +132,9 @@ export default function Footer() {
 
                   <li>
                     <a
-                      href="#"
+                      href="https://storecrm.com/ja/partner/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-base text-gray-300 hover:text-white"
                     >
                       パートナー

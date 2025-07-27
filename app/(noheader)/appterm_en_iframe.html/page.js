@@ -1,0 +1,28 @@
+import React from "react";
+import Head from "next/head";
+import { convertContent } from "libs/filters";
+import { content_term } from "libs/static_en";
+
+export default async function Privacy() {
+  const post = await getPostData("privacy");
+  return (
+    <>
+      <Head>
+        <title>{`${post.title} - Groovy Media, Inc.`}</title>
+      </Head>
+      {post.content && (
+        <div
+          className="mt-12 prose prose-green prose-lg text-gray-500 mx-auto"
+          dangerouslySetInnerHTML={{
+            __html: post.content.replace("<a ", '<a target="_blank" '),
+          }}
+        ></div>
+      )}
+    </>
+  );
+}
+
+export async function getPostData() {
+  const fileContents = await convertContent(content_term);
+  return fileContents;
+}

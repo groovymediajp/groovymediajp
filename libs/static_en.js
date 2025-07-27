@@ -20,9 +20,9 @@ This Privacy Policy explains how we collect, use, share, and protect personal in
 
 We may collect the following categories of personal information:
 
-### a. From Shopify Merchants:
+### a. From Shopify Merchants, Mechants and business customers:
 
-- Store name, domain, contact email
+- Store name, domain, contact email, contact phone number
 - Order, product, and customer data (via Shopify APIs, only as permitted)
 - Shopify OAuth access tokens and store settings
 
@@ -109,7 +109,7 @@ We may share your personal information with:
 
 ---
 
-# 8. International Data Transfers
+## 8. International Data Transfers
 
 Groovy Media, Inc. stores and processes all customer and user data primarily in Japan using cloud infrastructure located in the Tokyo region of Amazon Web Services (AWS). This means that, under normal circumstances, no international data transfers occur for Japanese users or Shopify merchants using our application.
 

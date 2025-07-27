@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__MCP-server-chatGPT__chat_with_gpt",
+      "Bash(node:*)"
+    ],
+    "deny": []
+  }
+}

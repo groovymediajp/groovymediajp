@@ -141,10 +141,10 @@ You may opt out by changing your browser settings. Blocking cookies may impair c
 We retain data only as long as necessary:
 
 - **Shopify data**: Deleted within 30 days of app uninstallation
-- **Restock alerts, wishlists, popups**: Deleted upon user request or after 1 year
+- **Restock alerts, wishlists, popups**: Deleted upon user request
 - **Support inquiries**: Retained for 2 years
-- **Analytics logs**: Retained for 12 months
-- **Message logs**: Retained based on platform policy (e.g., 30–90 days)
+- **Analytics logs**: Retained for 24 months
+- **Message logs**: Retained for 12 months
 
 ---
 

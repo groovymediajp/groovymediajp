@@ -113,12 +113,16 @@ Access to personal data is physically restricted, and measures are taken to prev
 Access control is implemented to limit personnel and database access. Systems are protected against unauthorized access and malicious software.
 We use cloud services with servers located outside Japan. To ensure the secure management of retained personal data, we confirm that those servers are either within the EU or the United Kingdom—jurisdictions recognized by the Personal Information Protection Commission as providing protections equivalent to Japan—or that they have obtained CBPR certification. If neither condition is met, we review the personal information protection framework of the relevant foreign country and implement the necessary and appropriate safeguards for the management of personal data.
 Currently, the foreign countries to which personal data is provided and information about their regimes are as follows:
+
 United States of America
 https://www.ppc.go.jp/files/pdf/USA_report.pdf
+
 Commonwealth of Australia
 https://www.ppc.go.jp/files/pdf/australia_report.pdf
+
 Socialist Republic of Viet Nam
 https://www.ppc.go.jp/files/pdf/vietnam_report.pdf
+
 Canada
 https://www.ppc.go.jp/files/pdf/canada_report.pdf
 
